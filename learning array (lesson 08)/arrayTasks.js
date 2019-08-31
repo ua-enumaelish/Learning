@@ -1,5 +1,4 @@
 var task = (function(callback){
-	
 		
 return{
 	reverse: function(){	
