@@ -1,20 +1,22 @@
 
-var pow = (function(){
+var exponent = (function(){
 
 	return{
-		getPow: function(num,n){
+		pow: function(num,n){
 			var sum = num;
 			for(var i = 1; i < n; i++){
 				sum *= num;
 			}
 			return sum;
 		},
-		getPowRecursion: function(num,n){
-			var sum = num;
-			while(n > 1){
-				pow.getPowRecursion(sum *= num, --n);
+		recursion: function(num,n){
+			if(n != 1){
+				return num *= pow.powRecursion(num, --n);
 			}
-			return sum;
+
+			else{
+				return num;
+			}
 		}		
 	}
 })();

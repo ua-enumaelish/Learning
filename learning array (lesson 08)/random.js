@@ -1,7 +1,7 @@
-var randomNum = (function(){
+var randomNumbers = (function(){
 	let array = [];
 	return{
-  	getNumbers: function(length, number){
+  	getArray: function(length, number){
   		for(let i = 0; i < length; i++){  
   			array.push(Math.floor(Math.random()*number));
   		}
