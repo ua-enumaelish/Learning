@@ -1,0 +1,864 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"i",
+				"index.html"
+			],
+			[
+				"fonts",
+				"font-size\tproperty"
+			],
+			[
+				"Hobbi",
+				"Hobbits\tabc"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"ran",
+				"randomArray\tabc"
+			],
+			[
+				"ra",
+				"randomNumber\tabc"
+			],
+			[
+				"arra",
+				"array.length\tabc"
+			],
+			[
+				"foo",
+				"footer__logo.png\tw:166 h:120"
+			],
+			[
+				"pos",
+				"position\tabc"
+			],
+			[
+				"margin-",
+				"margin-left\tproperty"
+			],
+			[
+				"re",
+				"relative\t(intro.sass)"
+			],
+			[
+				"pa",
+				"padding-bottom\tabc"
+			],
+			[
+				"consoe",
+				"console.log\tabc"
+			],
+			[
+				"array",
+				"array.length\t(index.html)"
+			],
+			[
+				"le",
+				"length\tabc"
+			],
+			[
+				"console",
+				"console_log"
+			],
+			[
+				"arr",
+				"array.length\t(index.html)"
+			],
+			[
+				"return",
+				"return\tabc"
+			],
+			[
+				"rel",
+				"relative\tabc"
+			],
+			[
+				"dis",
+				"display\tabc"
+			],
+			[
+				"getElementB",
+				"getElementsByTagName\t( localName: DOMString ): HTMLCollection Element"
+			],
+			[
+				"grid-",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
+				"no",
+				"no-repeat\t(topline.sass)"
+			],
+			[
+				"u",
+				"uppercase\t(topline.sass)"
+			],
+			[
+				"vis",
+				"visibility\tabc"
+			],
+			[
+				"trans",
+				"transform\tproperty"
+			],
+			[
+				"he",
+				"line-height\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"mar",
+				"margin\tproperty"
+			],
+			[
+				"st",
+				"style.css"
+			],
+			[
+				"texa",
+				"text-align\tproperty"
+			],
+			[
+				"font-s",
+				"font-size\t(logo.sass)"
+			],
+			[
+				"flex",
+				"flex-direction\tproperty"
+			],
+			[
+				"con",
+				"content\tproperty"
+			],
+			[
+				"user",
+				"user.svg"
+			],
+			[
+				"space",
+				"space-between"
+			],
+			[
+				"j",
+				"justify-content\tproperty"
+			],
+			[
+				"fle",
+				"flex-end"
+			],
+			[
+				"min",
+				"min-height\tproperty"
+			],
+			[
+				"tex",
+				"text-decoration\tproperty"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"mt",
+				"margin-top\tproperty"
+			],
+			[
+				"boxs",
+				"box-sizing\tproperty"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
+				"pad",
+				"padding\tproperty"
+			],
+			[
+				"outline-",
+				"outline-color\tproperty"
+			],
+			[
+				"load",
+				"loadFile"
+			],
+			[
+				"click",
+				"onclick\t: EventHandler Document"
+			],
+			[
+				"consol",
+				"console.log"
+			],
+			[
+				"r",
+				"random\t(index.js)"
+			],
+			[
+				"setTime",
+				"setTimeout\t(index.js)"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"sty",
+				"list-style-type\tproperty"
+			],
+			[
+				"box",
+				"box-sizing\tproperty"
+			],
+			[
+				"grid",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"flex-s",
+				"flex-start"
+			],
+			[
+				"getD",
+				"getDay\t(): int Date"
+			],
+			[
+				"task",
+				"taskInput"
+			],
+			[
+				"toggle",
+				"toggleClass\t(jquery.js)"
+			],
+			[
+				"response",
+				"responseText\t XMLHttpRequest"
+			],
+			[
+				"text",
+				"textContent"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"add",
+				"addEventListener\t( type: DOMString, callback: EventListener, capture?: boolean ): void EventTarget"
+			],
+			[
+				"q",
+				"querystring"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"cha",
+				"changeReview"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"conta",
+				"contains\t( other: Node ): boolean Node"
+			],
+			[
+				"some",
+				"something"
+			],
+			[
+				"de",
+				"default\t(main.js)"
+			],
+			[
+				"text-s",
+				"text-decoration-style\tproperty"
+			],
+			[
+				"flex-r",
+				"flex-direction\tproperty"
+			],
+			[
+				"s",
+				"section"
+			],
+			[
+				"type",
+				"list-style-type\tproperty"
+			],
+			[
+				"query",
+				"querySelector\t( selectors: DOMString ): Element (Selectors) Element"
+			],
+			[
+				"cur",
+				"cursor\tproperty"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"borde",
+				"border"
+			],
+			[
+				"op",
+				"opacity\tproperty"
+			],
+			[
+				"bgp",
+				"bgpx\tbackground-position-x"
+			],
+			[
+				"sp",
+				"space-between"
+			],
+			[
+				"col",
+				"column\t(nav.sass)"
+			],
+			[
+				"border-b",
+				"border-bottom\tproperty"
+			],
+			[
+				"border-",
+				"border-box\t(main.sass)"
+			],
+			[
+				"po",
+				"pointer"
+			],
+			[
+				"list-",
+				"list-style-type\tproperty"
+			],
+			[
+				"ri",
+				"right\tproperty"
+			],
+			[
+				"al",
+				"align-items\t(style.less)"
+			],
+			[
+				"border-ra",
+				"border-radius\tproperty"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"L",
+				"Layer_1\t(logo.svg)"
+			],
+			[
+				"logo",
+				"logo.svg"
+			],
+			[
+				"La",
+				"Layer_2\t(logo.svg)"
+			],
+			[
+				"im",
+				"import"
+			],
+			[
+				"cons",
+				"console_log"
+			],
+			[
+				"bu",
+				"buttonPrev"
+			],
+			[
+				"padd",
+				"padding-left\t(cart.sass)"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"p",
+				"padding"
+			],
+			[
+				"textr",
+				"text-transform\t(main-nav.sass)"
+			],
+			[
+				"box-s",
+				"box-sizing\t(user-info.sass)"
+			],
+			[
+				"ser",
+				"search\t(index.html)"
+			],
+			[
+				"cu",
+				"cursor\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"main",
+				"main-nav__list"
+			],
+			[
+				"align-",
+				"align-items\tproperty"
+			],
+			[
+				"co",
+				"content\t(main-nav.sass)"
+			],
+			[
+				"main-nav__li",
+				"main-nav__link\t(index.html)"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"main-nav__",
+				"main-nav__list\t(index.html)"
+			],
+			[
+				"ga",
+				"grid-area\tproperty"
+			],
+			[
+				"gridt",
+				"grid-template-areas\tproperty"
+			],
+			[
+				"head",
+				"header"
+			],
+			[
+				"grid-t",
+				"grid-template-columns"
+			],
+			[
+				"gro",
+				"grid-row-gap\tproperty"
+			],
+			[
+				"grid-c",
+				"grid-column-gap\tproperty"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"gulp",
+				"gulp-sass"
+			],
+			[
+				"img",
+				"img/"
+			],
+			[
+				"a",
+				"advantages"
+			],
+			[
+				"margin",
+				"margin-right\t(main-nav.less)"
+			],
+			[
+				"back",
+				"background-color\t(main-nav.less)"
+			],
+			[
+				"project",
+				"_project-mixins.sass"
+			],
+			[
+				"star",
+				"start-home-background-mobile.png\tw:320 h:305"
+			],
+			[
+				"start",
+				"start-home/"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 137.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"emmet: css",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: mix"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: w",
+				"Snippet: wp_header"
+			],
+			[
+				"Snippet: wp",
+				"Snippet: wp_header"
+			],
+			[
+				"",
+				"ANF: Delete File"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac",
+				"Install Package Control"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template/task-template.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template/index.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template/page-template.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template/template.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/index.html",
+		"/C/Users/Alex F/Desktop/js/Тимур/index.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template.css",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/template.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/style.css",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/math operation (lesson 11)/index.js",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/learning array (lesson 08)/random.js",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/learning array (lesson 08)/arrayTasks.js",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/learning array (lesson 08)/index.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/hobbits (lesson 10)/index.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/math operation (lesson 11)/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/lesson10--Hobbits--/index.js",
+		"/C/Users/Alex F/Desktop/js/Learning.Github/learning.github.io/math operation (lesson 11)/index.js",
+		"/C/Users/Alex F/Desktop/js/Learning.Github/learning.github.io/index.html",
+		"/C/Users/Alex F/Desktop/js/Learning.Github/learning.github.io/math operation (lesson 11)/index.html",
+		"/C/Users/Alex F/Desktop/js/math/index.html",
+		"/C/Users/Alex F/Desktop/js/github.io/ua-enumaelish.github.io/hobbits (lesson 10)/index.js",
+		"/C/Users/Alex F/Desktop/js/lesson/index.js",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/hobbits (lesson 10)/index.js",
+		"/C/Users/Alex F/Desktop/js/Repeat/Learning/hobbits (lesson 10)/index.js",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/style.css",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/math operation (lesson 11)/index.html",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/hobbits (lesson 10)/index.html",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/learning array (lesson 08)/index.html",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/main-nav.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/main-header.sass",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/learning array (lesson 08)/arrayTasks.js",
+		"/C/Users/Alex F/Desktop/js/Learning/Learning/learning array (lesson 08)/random.js",
+		"/C/Users/Alex F/Desktop/js/math/index.js",
+		"/C/Users/Alex F/Desktop/js/lesson 8/index.js",
+		"/C/Users/Alex F/Desktop/WD-pro/lesson8--array--/index.js",
+		"/C/Users/Alex F/Desktop/js/math/randomNumbers",
+		"/C/Users/Alex F/Desktop/WD-pro/lesson10--Hobbits--/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/lesson8--array--/index.html",
+		"/C/Users/Alex F/Desktop/js/index.js",
+		"/C/Users/Alex F/Desktop/js/lesson/index.html",
+		"/C/Users/Alex F/Desktop/js/lesson 8/index.html",
+		"/C/Users/Alex F/AppData/Local/Microsoft/Windows/INetCache/IE/B65U193C/index[1].js",
+		"/C/Users/Alex F/AppData/Local/Microsoft/Windows/INetCache/IE/N94PFW8Y/index[1].js",
+		"/C/Users/Alex F/Desktop/js/index2.js",
+		"/C/Users/Alex F/Desktop/js/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Grid/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Grid/style.css",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/main.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/footer.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/socials.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/topline.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/bottomline.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/brands.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/js/common.js",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/button.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/blog.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/intro.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/gulpfile.js",
+		"/C/Users/Alex F/Desktop/helper-20190803T052719Z-001/helper/index.html",
+		"/C/Users/Alex F/Desktop/React/index.html",
+		"/C/Users/Alex F/Desktop/React/index.js",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/brand-nav.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/libs/jquery.js",
+		"/C/Users/Alex F/Desktop/JavaScript/index2.js",
+		"/C/Users/Alex F/Desktop/JavaScript/index.js",
+		"/C/Users/Alex F/Desktop/JavaScript/index.html",
+		"/C/Users/Alex F/Desktop/webpacLavrik/index.html",
+		"/C/Users/Alex F/Desktop/webpacLavrik/.babelrc",
+		"/C/Users/Alex F/Desktop/webpacLavrik/src/index.js",
+		"/C/Users/Alex F/Desktop/webpacLavrik/webpack.config.js",
+		"/C/Users/Alex F/Desktop/webpacLavrik/package.json",
+		"/C/Users/Alex F/Desktop/webpacLavrik/babelrc.js",
+		"/C/Users/Alex F/Desktop/webpacLavrik/dist/main.js",
+		"/C/Users/Alex F/Desktop/webpacLavrik/index.js",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/css/normalize.css",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/logo.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/wrapper.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/css/blocks/intro.css",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/sass/blocks/main-header.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/maket-internet-magazina-dlya-prodazhi-premium-obuvi/app/css/main.css",
+		"/C/Users/Alex F/Desktop/vue/1 lesson/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/js/common.js",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/main.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/services.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/ФЕЩЕНКО О/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/libs/masonry.js",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/logo.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/slider.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/main-header.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/gulpfile.js",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/css/main.css",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/wrapper.sass",
+		"/C/Users/Alex F/Desktop/Портфолио/sedona/sedona/sass/main.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Magazine/app/sass/main.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/sass/blocks/wrap.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/Lian/app/img/logo.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/Adaptive/style.css",
+		"/C/Users/Alex F/Desktop/WD-pro/Adaptive/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/New project (sass)/app/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/search.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/logo.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/bottomline.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/main.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/topline.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/index.html",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/phone.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/cart.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/advantages.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/form.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/btn-menu.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/js/common.js",
+		"/C/Users/Alex F/Desktop/Web-Developer/Sedona/app/js/common.js",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/css/blocks/btn-menu.css",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/main-nav.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/slider.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/natural.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/slider-arrow.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/dot.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/_vars.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/dot_active.svg",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/sass/blocks/user-nav.sass",
+		"/C/Users/Alex F/Desktop/Web-Developer/Sedona/app/sass/blocks/header.sass",
+		"/C/Users/Alex F/Desktop/WD-pro/WEB ТЗ/app/img/search.svg",
+		"/C/Users/Alex F/Desktop/Web-Developer/Sedona — копия/gulpfile.js",
+		"/C/Users/Alex F/Desktop/Web-Developer/Cat Project/app/sass/blocks/logo.sass"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"&::before"
+			]
+		],
+		"width": 424.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
