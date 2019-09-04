@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Planets</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-10 pt-3">
+				<h1 class="mb-4 text-light">
+					Planets (lesson 12)
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 border-bottom">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать страницу. На которой вывести кнопки с разными именами(чем больше тем лучше, но как минимум 10).
+					</li>
+					<li class="list-group-item border-0">
+						К каждой кнопке повесить обработчик. Который будет выводить “console” с именем кнопки.
+					</li>	
+					<li class="list-group-item border-0">
+						Также нажатие на каждую кнопку должно записываться в хранилище(просто глобальный объект).
+					</li>		
+					<li class="list-group-item border-0">
+						Также запустить “логгер” который должен выводить в консоль, один раз в минуту, сколько раз была нажата каждая из существующих на странице кнопок.
+					</li>						
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 pb-3 pt-3 border-bottom text-center">
+				<button type="button" name="Mercury" class="btn btn-secondary">Mercury</button>
+				<button type="button" name="Venus" class="btn btn-secondary">Venus</button>
+				<button type="button" name="Earth" class="btn btn-secondary">Earth</button>
+				<button type="button" name="Mars" class="btn btn-secondary">Mars</button>
+				<button type="button" name="Jupiter" class="btn btn-secondary">Jupiter</button>
+				<button type="button" name="Saturn" class="btn btn-secondary">Saturn</button>
+				<button type="button" name="Uranus" class="btn btn-secondary">Uranus</button>
+				<button type="button" name="Neptune" class="btn btn-secondary">Neptune</button>
+				<button type="button" name="Ceres" class="btn btn-secondary">Ceres</button>
+				<button type="button" name="Pluto" class="btn btn-secondary">Pluto</button>				
+			</div>
+		</div>				
+	</div>
+</div>
+<script>
+	var planets = document.querySelectorAll('[name]');
+	var addEvent = {};
+	var count = 0;	
+	for(var i = 0; i < planets.length; i++){
+		planets[i].addEventListener('click', function(){
+			console.log(this.name);    
+			addEvent[this.name] = addEvent[this.name] || count;   
+			addEvent[this.name]++;
+			console.log(addEvent[this.name]);    
+		});  
+	}
+
+	setInterval(function(){
+		console.log(addEvent);
+	},5000);
+
+</script>
+</body>
+</html>

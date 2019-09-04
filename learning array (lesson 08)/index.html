@@ -2,28 +2,45 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Learning array</title>
+	<title>LEARNING ARRAY (TASK 1)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
 	<script src="random.js"></script>
 	<script src="arrayTasks.js"></script>
 </head>
 <body>
-	<div class="wrapper">
-
-		<div class="lessons">
-			<a href="../index.html" class="back">BACK</a>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-10 pt-3">
+				<h1 class="mb-4 text-light">
+					LEARNING ARRAY (TASK 1)
+				</h1>
+			</div>
 		</div>
-		<div class="task">
-			<h1 class="task__title">
-				TASKS
-			</h1>			
-				<ol class="task-array__list">
-					<li class="task-array__item">
-						Написать функцию, которая возвращает содержимое массива наоборот.
-					</li>
-				</ol>			
-		</div>
+		<div class="row">
+			<div class="col-12">
+				<p class="pt-5 pb-5 border-bottom">
+					Написать функцию, которая возвращает содержимое массива наоборот.
+				</p>
+			</div>
+		</div>		
 	</div>
+	<script>
+		var task = (function(randomNumbers){
+
+			return{
+				reverse: function(){	
+					var array = randomNumbers.getArray(10,10);
+					console.log(array);
+					var reverseArray = array.reverse();
+					return reverseArray;
+				}
+			}
+
+		})(randomNumbers);
+	</script>
 </body>
 </html>

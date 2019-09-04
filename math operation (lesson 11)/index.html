@@ -4,46 +4,106 @@
 	<meta charset="UTF-8">
 	<title>Math operation</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../style.css">
-	<script src='index.js'></script>
-	<style>
-		button{
-			margin-top: 20px;
-		}
-	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<script src='index.js'></script>	
 </head>
 <body>
-	<div class="wrapper">
-		<div class="lessons">
-			<a href="../index.html" class="back">BACK</a>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-10 pt-3">
+				<h1 class="mb-4 text-light">
+					MATH OPERATION
+				</h1>
+			</div>
 		</div>
-		<div class="task">
-			<h1 class="task__title">
-				TASKS
-			</h1>	
-			<ol class="task__list">
-				<li class="task__item">
-					Написать функцию которая возвращает результат возведения числа в степень “n”. Функция принимает 2 аргумента. Само число и степень в которую его нужно возвести.
-				</li>
-				<li class="task__item">
-					Скорректировать функцию с учетом особенностей мат операций в js. Чтобы при передаче числа с точкой (не степени) функция работала корректно.
-				</li>
-				<li class="task__item">
-					Решить “1” задачу с использование рекурсии.
-				</li>
-				<li class="task__item">
-					Возраст(целое число) должен генерироваться автоматически и случайным образом в диапазоне от 12 до 100. Будем считать что лет.
-				</li>
-				<li class="task__item">
-					Написать 2 функции (можно методы) которые при каждом вызове будут возвращать инкремент\декремент. То есть функции счетчики. Для проверки вызвать их в бесконечном цикле (имеется в виду setTimeout).
-				</li>
-				<li class="task__item">
-					К задаче “4” добавить на страницу кнопку которая будет выводить текущее состояние счетчиков.					
-				</li>
-				<button onclick='counter.showCount()'>Show COUNT!!!!</button>
-				<span></span>
-			</ol>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Написать функцию которая возвращает результат возведения числа в степень “n”. Функция принимает 2 аргумента. Само число и степень в которую его нужно возвести.
+					</li>
+					<li class="list-group-item border-0">
+						Скорректировать функцию с учетом особенностей мат операций в js. Чтобы при передаче числа с точкой (не степени) функция работала корректно.
+					</li>
+					<li class="list-group-item border-0">
+						Решить “1” задачу с использование рекурсии.
+					</li>
+					<li class="list-group-item border-0">
+						Написать 2 функции (можно методы) которые при каждом вызове будут возвращать инкремент\декремент. То есть функции счетчики. Для проверки вызвать их в бесконечном цикле (имеется в виду setTimeout).
+					</li>
+					<li class="list-group-item border-0">
+						К задаче “4” добавить на страницу кнопку которая будет выводить текущее состояние счетчиков.
+					</li>						
+				</ul>
+			</div>
 		</div>
+		<script>
+			var exponent = (function(){
+				return{
+					pow: function(num,n){
+						var sum = num;
+						for(var i = 1; i < n; i++){
+							sum *= num;
+						}
+						return sum;
+					},
+					recursion: function(num,n){
+						if(n != 1){
+							return num *= exponent.recursion(num, --n);
+						}
+
+						else{
+							return num;
+						}
+					}		
+				}
+			})();
+
+			var counter = (function(){
+				var count = 0;
+				var timer = 0;
+
+				return{
+
+					getIncrement: function(){
+						return console.log(++count);
+					},
+
+					getDecrement: function(){
+						return console.log(--count);
+					},
+
+					testIncrement: function(){			
+						timer = setTimeout(function(){				
+							counter.getIncrement();
+							counter.testIncrement();				
+						},1000);
+					},
+
+					testDecrement: function(){			
+						timer =	setTimeout(function(){				
+							counter.getDecrement();
+							counter.testDecrement();				
+						},1000);
+					},
+
+					stop: function(){
+						return clearTimeout(timer);
+					},
+
+					showCount: function(){
+						document.querySelector('span').innerHTML= count;
+					},
+
+					getTimer: function(){
+						console.log(timer);
+					}
+				}
+			})();
+		</script>
 	</div>
 </body>
 </html>
