@@ -2,41 +2,79 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hobbits</title>
-	<link rel="stylesheet" href="../style.css">
+	<title>Hobbits (lesson 10)</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="index.js"></script>
 </head>
 <body>
-	<div class="wrapper">
-		<div class="lessons">
-			<a href="../index.html" class="back">BACK</a>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-3">
+				<h1 class="mb-4 text-light text-center">
+					Hobbits (lesson 10)
+				</h1>
+			</div>
+			<div class="offset-2"></div>
 		</div>
-		<div class="task">
-			<h1 class="task__title">
-				TASKS
-			</h1>	
-			<ol class="task__list">
-				<li class="task__item">
-					Создать функцию которая будет создавать хоббитов. То есть возвращать объект который мы будем считать хоббитом.
-				</li>
-				<li class="task__item">
-					Хоббит - объект. У которого есть поля. Имя,возраст и счетчик.
-				</li>
-				<li class="task__item">
-					Имя необходимо передать в функцию. Если имя не будет передано НЕ создавать хоббита.
-				</li>
-				<li class="task__item">
-					Возраст(целое число) должен генерироваться автоматически и случайным образом в диапазоне от 12 до 100. Будем считать что лет.
-				</li>
-				<li class="task__item">
-					Счетчик так же генерируется автоматически. И несет в себе значение - каким по счету был создан хоббит.
-				</li>
-				<li class="task__item">
-					Затем с помощью этой функции создать 24 хоббита с разными именами. Вывести в консоль массивом.
-				</li>
-			</ol>
-		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="pt-5 pb-5 border-bottom">
+					<ul class="list-group">
+						<li class="list-group-item border-0">
+							Создать функцию которая будет создавать хоббитов. То есть возвращать объект который мы будем считать хоббитом.
+						</li>
+						<li class="list-group-item border-0">
+							Хоббит - объект. У которого есть поля. Имя,возраст и счетчик.
+						</li>
+						<li class="list-group-item border-0">
+							Имя необходимо передать в функцию. Если имя не будет передано НЕ создавать хоббита.
+						</li>
+						<li class="list-group-item border-0">
+							Возраст(целое число) должен генерироваться автоматически и случайным образом в диапазоне от 12 до 100. Будем считать что лет.
+						</li>
+						<li class="list-group-item border-0">
+							Счетчик так же генерируется автоматически. И несет в себе значение - каким по счету был создан хоббит.
+						</li>
+						<li class="list-group-item border-0">
+							Затем с помощью этой функции создать 24 хоббита с разными именами. Вывести в консоль массивом.
+						</li>
+					</ul>
+				</div>				
+			</div>
+		</div>				
 	</div>
+</div>
+<script>
+	var array = [];
+	var arrayNames = [
+	'Bilbo', 'Frodo', 'Samwise', 'Hamfast', 'Meriadoc', 'Peregrin', 'Fredegar', 'Maggot', 'Bungo',
+	'Belladonna', 'Bandobras "Bullroarer" Took', 'Folko', 'Rose', 'Elanor', 'Drogo', 'Primrose',
+	'Mirabella', 'Deaogl', 'Izumbras', 'Gog','Bob', 'Faolla', 'Staogl', 'Dragan', 'Nob'
+	];
+
+	function Hobbit(name){
+		this.name = name;
+		this.age = Math.floor(Math.random()*(100 - 12)+12); 
+		this.count = Hobbit.prototype.count++; 
+	}
+
+	Hobbit.prototype.count = 1;
+
+	for(var i = 0; i < arrayNames.length; i++){
+		var hobbit = new Hobbit(arrayNames[i]);
+		array.push(hobbit);
+	}
+
+	var bilbo = new Hobbit('Bilbo');
+	console.log(bilbo);
+
+	var frodo = new Hobbit('Frodo');
+	console.log(frodo);
+
+	console.log(array);
+</script>
 </body>
 </html>
