@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>OOP (lesson 14)</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					OOP (lesson 14)
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<h3 class="mb-4 text-light text-center">
+					Задача 0
+				</h3>
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать объект “Дом” со свойствами: окна и двери, значениями которых будет цвет.
+						Создайте методы: покрасить окно, покрасить двери, покрасить все. Методы должны
+						принимать цвет. Протестируйте объект
+					</li>		
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom text-center">
+				<h4 class="text-center mt-5 mb-3 ">
+					House
+				</h4>	
+				<div class="d-flex flex-column"></div>
+				<div>
+					<span class="text-center">Window: </span><span class="window"></span>
+				</div>
+				<div>
+					<span class="text-center">Door: </span><span class="door"></span>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+</div>
+<script>
+	
+	var house = {		
+			window: '',
+			door: '',
+			paintingWindow: function(){
+				this.window = this.getColor();
+			},
+			paintingDoor: function(){
+				this.door = this.getColor();
+			},
+			paintingAll: function(){
+				this.window = this.getColor();
+				this.door = this.getColor();
+			},
+			getColor: function(){
+				var colors = ['red', 'blue', 'orange', 'green', 'coral', 'grey', 'aqua'];
+				return colors[Math.floor(Math.random()*colors.length)];
+			}
+		}
+
+
+	setInterval(function(){
+		house.paintingDoor(house.getColor());
+		house.paintingWindow(house.getColor());
+
+		document.querySelector('.door').innerHTML = house.door;
+		var style = 'color:' + house.door;
+		document.querySelector('.door').setAttribute('style', style);
+		
+		document.querySelector('.window').innerHTML = house.window;	
+		var style = 'color:' + house.window;
+		document.querySelector('.window').setAttribute('style', style);
+	}, 2000);
+
+	
+
+</script>
+</body>
+</html>

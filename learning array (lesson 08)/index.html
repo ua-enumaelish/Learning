@@ -21,27 +21,84 @@
 			</div>
 			<div class="offset-2"></div>
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<p class="pt-5 pb-5 border-bottom">
-					Написать функцию, которая возвращает содержимое массива наоборот.
+		<div class="row task1">
+			<div class="col-12 pb-3 border-bottom">
+				<p class="pt-5 pb-2">
+					1. Написать функцию, которая возвращает содержимое массива наоборот.
 				</p>
+				<button type="button" onclick="task.reverse()" class="btn btn-secondary">CLICK</button>	
 			</div>
-		</div>		
+		</div>
+		<div class="row task2">
+			<div class="col-12 pb-3 border-bottom">
+				<p class="pt-5 pb-2">
+					2. Написать функцию, которая находит в массиве значения, повторяющиеся два и более раз, и возвращает их.
+				</p>
+				<button type="button" onclick="task.repeats()" class="btn btn-secondary">CLICK</button>
+			</div>
+		</div>	
+		<div class="row task3">
+			<div class="col-12 pb-3 border-bottom">
+				<p class="pt-5 pb-2">
+					3. Написать функцию, которая находит в массиве самое маленькое нечетное число и
+					возвращает его.
+				</p>
+				<button type="button" onclick="task.oddNumber()" class="btn btn-secondary">CLICK</button>
+			</div>
+		</div>			
 	</div>
 	<script>
-		var task = (function(randomNumbers){
+		
+		var task = (function(randomNumbers, getTable){
 
 			return{
 				reverse: function(){	
-					var array = randomNumbers.getArray(10,10);
-					console.log(array);
-					var reverseArray = array.reverse();
-					return reverseArray;
+					var array = randomNumbers(10,10);
+					var reversed = array.slice(0);
+					reversed.reverse();
+					var output = getTable(array,reversed);
+					document.querySelector('.task1').append(output);
+				},
+
+				repeats: function(){
+					var array = randomNumbers(10,10);
+					var index = 1;
+					var repeatNumbers = [];
+					
+					for(var i = 0; i < array.length; i++){
+						var searching = array.indexOf(array[i], index);
+						
+						index++;
+
+						if(searching != -1){
+							repeatNumbers.push(array[i]);
+						}					
+					}
+					var output = getTable(array, repeatNumbers);
+					document.querySelector('.task2').append(output);
+				},
+
+				oddNumber: function(){
+					var array = randomNumbers(10,10);					
+					var odd = [];
+					for(var i = 0; i < array.length; i++){
+						if(array[i] % 2 != 0){
+							odd.push(array[i]);
+						}
+					}
+
+					minNumber = odd[0];
+					for(var i = 1; i < odd.length; i++){
+						if(minNumber > odd[i]){
+							minNumber = odd[i];
+						}
+					}					
+					var output = getTable(array, minNumber);
+					document.querySelector('.task3').append(output);
 				}
 			}
 
-		})(randomNumbers);
+		})(randomNumbers, getTable);
 	</script>
 </body>
 </html>
