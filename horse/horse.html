@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Horse - lesson 14 (part 2)</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Horse - lesson 14 (part 2)
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать конструктор Horse, который принимает имя лошади и создает объект со
+						следующими свойствами и методами:
+						<ul>
+							<li>Свойства:</li>
+							<ul>
+								<li>имя лошади</li>
+								<li>пробег</li>
+								<li>общий пробег всеми лошадьми</li>
+							</ul>
+							<li>Методы:</li>
+							<ul>
+								<li>функция бежать, которая принимает расстояние, как параметр функции, и
+								увеличивает на это расстояние пробег и общий пробег.</li>
+							</ul>
+						</ul>						
+						Создать двух лошадей и протестировать, что общий пробег был равен сумме пробега
+						каждой лошади
+					</li>									
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom">
+				<h4 class="text-center mt-5 mb-5 ">
+					OPTIONAL CONTAINER
+				</h4>				
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom">
+				<h4 class="text-center mt-5 mb-5 ">
+					CONTAINER
+				</h4>				
+			</div>
+		</div>			
+	</div>
+</div>
+
+<script>
+		Horse.prototype.generalMileage = 0;
+		function Horse(name){
+			this.name = name;
+			this.mileage = 0;		
+			this.run = function(add){
+				Horse.prototype.generalMileage += add;
+				return this.mileage += add;				
+			}				
+		}
+		var horse = new Horse('Thunder');
+		var horse2 = new Horse('Bucephalus');
+
+
+		horse.run(1);
+		horse2.run(1);		
+
+		function running(arg){	
+
+			setInterval(function(){				
+				arg.run(+1);
+				console.log("I'm " + arg.name + '. I\'m running ' + arg.mileage + ' mileage');
+				console.log('General mileage '+ horse.generalMileage);
+			},3000);
+		}
+
+		running(horse);
+		running(horse2);
+		
+
+	</script>
+</body>
+</html>
