@@ -66,20 +66,23 @@
 	function Horse(name){
 		this.name = name;
 		this.mileage = 0;		
-		this.fatigue = 0;
-		this.addMileage = function(add){
-			Horse.prototype.generalMileage += add;
-			return this.mileage += add;				
-		},
+		this.fatigue = 0;			
+	}
 
-		this.running = function(){
+	Horse.prototype = {
+		constructor: Horse,
+
+		generalMileage: 0,		
+
+		running: function(){
 			var that = this;
 
 			var timer = setInterval(function(){
 				if(that.mileage != 15){
 
-					that.addMileage(1);
+					that.mileage++;
 					that.fatigue++;
+					that.generalMileage++;
 
 					console.log("I'm " + that.name + '. I\'m running ' + that.mileage + ' mileage');
 					console.log('General mileage '+ horse.generalMileage);
@@ -93,18 +96,14 @@
 			},1000);
 		},
 
-		this.resting = function(){			
+		resting: function(){			
 			var that = this;
 			console.log(this.name + ': I\'m resting 2 sec');
 			setTimeout(function(){	
 				that.fatigue = 0;	
 				that.running();						
 			}, 2000);			
-		}			
-	}
-	Horse.prototype = {
-		constructor: Horse,
-		generalMileage: 0
+		}
 	};
 
 	var horse = new Horse('Bucephalus');
