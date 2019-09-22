@@ -90,23 +90,26 @@
 
 			var timer = setInterval(function(){
 
-				if(that.fatigue < distance){
+				if(distance > 0){
 					that.mileage++;
 					that.fatigue++;
+					distance--;
+					
 					Horse.prototype.generalMileage++;
 
 					console.log("I'm " + that.name + '. I\'m running ' + that.mileage + ' mileage');
 					console.log('General mileage '+ that.generalMileage);
 
 					if(that.fatigue == 10){
-						var remainder = distance - 10;		
+						var remainder = distance;		
 						clearInterval(timer);						
 						that.resting(remainder);
-					}
+					}				
+				}
 
-					if(that.fatigue == distance){
-						console.log(that.name + ' - finished');
-					}					
+				else{
+					clearInterval(timer);
+					return console.log(that.name + ' finished');
 				}
 			},1000);
 
@@ -124,10 +127,11 @@
 	};
 
 	var horse = new Horse('Bucephalus');
-	horse.running(12);	
+	horse.fatigue = 4;
+	horse.running(22);	
 	var horse2 = new Horse('Thunder');
-	horse2.running(21);	
-	
+	horse2.running(9);	
+
 </script>
 </body>
 </html>
