@@ -71,28 +71,26 @@
 
 	Horse.prototype = {
 		constructor: Horse,
-
 		generalMileage: 0,		
 
 		running: function(){
 			var that = this;
 
 			var timer = setInterval(function(){
-				if(that.mileage != 15){
 
+				if(that.mileage != 15){
 					that.mileage++;
 					that.fatigue++;
-					that.generalMileage++;
+					Horse.prototype.generalMileage++;
 
 					console.log("I'm " + that.name + '. I\'m running ' + that.mileage + ' mileage');
-					console.log('General mileage '+ horse.generalMileage);
-					console.log(that.fatigue);
+					console.log('General mileage '+ that.generalMileage);
 
 					if(that.fatigue > 9){		
 						clearInterval(timer);						
 						that.resting();
 					}
-				}				
+				}
 			},1000);
 		},
 
@@ -109,9 +107,10 @@
 	var horse = new Horse('Bucephalus');
 	horse.running();	
 	var horse2 = new Horse('Thunder');
-	horse2.fatigue = 1;
-	console.log(horse2.mileage);
+	horse2.fatigue = 1;	
 	horse2.running();	
+
+
 </script>
 </body>
 </html>
