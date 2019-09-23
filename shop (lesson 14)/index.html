@@ -88,6 +88,63 @@
 
 	<script>		
 		
+		function Shop(){
+			this.stock = Shop.prototype.add('stock');
+			this.price = Shop.prototype.add('price');
+
+			this.amoutnProducts = Shop.prototype.amount(this.stock);
+
+		}
+
+		Shop.prototype = {
+			constructor: Shop,
+
+			amount: function(obj){
+				var sum = 0;
+				for(var key in obj){
+					sum += obj[key];
+				}
+				return sum;
+			},
+
+			add: function(prop){
+				var products = Object.create(null);
+				
+				for(key in this.productsInfo){
+					Object.defineProperty(products, key, {
+						value: this.productsInfo[key][prop],
+						writable: true,
+						configurable: true,
+						enumerable: true});
+				}
+				return products;
+			},
+
+			productsInfo: {
+				cheese: {
+					stock: 220,
+					price: 75
+				},
+				butter: {
+					stock: 110,
+					price: 45
+				},
+				milk: {
+					stock: 300,
+					price: 25
+				},
+				yogurt: {
+					stock: 150,
+					price: 35
+				},
+			}
+
+		}
+
+		var firstShop = new Shop();
+
+		console.log(firstShop);
+
 
 	</script>
 </body>
