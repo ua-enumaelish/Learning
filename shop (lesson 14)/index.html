@@ -92,50 +92,9 @@
 			this.stock = {};
 			this.price = {};
 			this.shopStock = 0;			
-			// Функция добавить товары на склад, которая принимает объект со всеми
-			// товарами, которые надо добавить и добавляет их в склад. В случае отсутствия
-			// расценок на какойлибо из товаров  этот товар добавлять не нужно.
-
-			this.addProduct = function(products){		
-
-				for(key in products){
-					
-					if(this.price[key]){
-						this.stock[key] = products[key];						
-						this.shopStock += products[key];
-						Shop.prototype.generalAmount += products[key];
-					}
-
-				}
-
-			};
+			
 
 
-			// Функция купить товар, которая принимает название товара и количество и
-			// уменьшает из объекта склад такое количество, сколько было заданно в параметрах.
-			// Предусмотреть проверку, чтоб в складе не оказалось отрицательное количество
-			// товаров.
-
-			this.buyProduct = function(product){
-				var buyAmount = Object.keys(product);
-				var stockAmount = Object.keys(this.stock);
-				
-				for(var i = 0; i < stockAmount.length; i++){	
-
-					if(stockAmount[i] == buyAmount[i]){
-						if(this.stock[stockAmount[i]] > product[buyAmount[i]]){							
-							this.stock[stockAmount[i]] -= product[buyAmount[i]];
-							this.shopStock -= product[buyAmount[i]];
-							Shop.prototype.generalAmount -= product[buyAmount[i]];
-						}
-
-						else{
-							console.log('You need ' + buyAmount[i] + ' more than we have');
-						}	
-					}
-				}
-
-			};
 		}
 
 		Shop.prototype = {
@@ -157,6 +116,53 @@
 			getAmount: function(product){
 				return console.log(this.stock[product]);
 			},			
+
+
+			// Функция купить товар, которая принимает название товара и количество и
+			// уменьшает из объекта склад такое количество, сколько было заданно в параметрах.
+			// Предусмотреть проверку, чтоб в складе не оказалось отрицательное количество
+			// товаров.
+
+			buyProduct : function(product){
+				var buyAmount = Object.keys(product);
+				var stockAmount = Object.keys(this.stock);
+				
+				for(var i = 0; i < stockAmount.length; i++){	
+
+					if(stockAmount[i] == buyAmount[i]){
+						if(this.stock[stockAmount[i]] > product[buyAmount[i]]){							
+							this.stock[stockAmount[i]] -= product[buyAmount[i]];
+							this.shopStock -= product[buyAmount[i]];
+							Shop.prototype.generalAmount -= product[buyAmount[i]];
+						}
+
+						else{
+							console.log('You need ' + buyAmount[i] + ' more than we have');
+						}	
+					}
+				}
+
+			},
+
+			// Функция добавить товары на склад, которая принимает объект со всеми
+			// товарами, которые надо добавить и добавляет их в склад. В случае отсутствия
+			// расценок на какойлибо из товаров  этот товар добавлять не нужно.
+
+			addProduct : function(products){		
+
+				for(key in products){
+					
+					if(this.price[key]){
+						this.stock[key] = products[key];						
+						this.shopStock += products[key];
+						Shop.prototype.generalAmount += products[key];
+					}
+
+				}
+
+			},
+
+
 
 			// Функция добавить расценки, которая принимает объект расценок, которые
 			// нужно добавить и те, и те, которые не присутствуют  необходимо добавить, а которые
