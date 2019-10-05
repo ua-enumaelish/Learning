@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Array</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					My Array
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать конструктор MyArray, который создает объект со следующими методами и
+						свойствами:
+						<ul class="list-group">
+							<li class="list-group-item border-0">
+								Методы:
+								<ul class="list-group">
+									<li class="list-group-item border-0">
+										Push
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>										
+				</ul>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom">
+				<h4 class="text-center mt-5 mb-5 ">
+					CONTAINER
+				</h4>				
+			</div>
+		</div>			
+	</div>
+</div>
+<script>
+
+
+	function MyArray(){
+		this.length = 0
+	}
+
+	MyArray.prototype = {
+		constructor: MyArray,
+
+		_push: function(elem){
+			if(arguments.length > 1){
+				for(var i = 0; i < arguments.length; i++){
+					this._push(arguments[i]);
+				}
+			}
+			else{
+				this[this.length] = elem;
+				this.length++;
+			}
+			return this.length;
+		},
+
+		_shift: function(){
+			var result = this[0];
+			for(var i = 0; i < this.length; i++){
+				this[i] = this[i + 1];       
+			}    
+			delete this[this.length-1];  
+			this.length--;
+			return result;
+		},
+
+		_join: function(separator){
+			if(this.length == 0){
+				return '';
+			}
+
+			if(!this[0]){
+				var result = '';
+			}
+			else{
+				var result = this[0];
+			}
+
+			for(var i = 0; i < this.length - 1; i++){
+				result += separator || ',';
+
+				if(!this[i+1]){
+					this[i+1] = ' ';
+				}      
+				result += this[i+1];
+			}    
+			return result;
+		},
+
+		_concat: function(array){    
+			for(var i = 0; i < array.length; i++){
+				this[this.length] = array[i];
+				this.length++;
+			}     
+			return this;
+		},
+
+		_pop: function(){
+			if(this.length == 0){
+				return undefined;
+			}
+			var result = this[this.length-1];
+			delete this[this.length-1];
+			this.length--;
+			return result;
+		},
+
+		_unshift: function(elem){
+			var arrayElem = [];
+			var count = 0;
+			for(var i = 0; i < this.length; i++){
+				arrayElem[i] = this[i];
+				if(arguments[i]){
+					this[i] = arguments[i];
+					this.length++;
+				}      
+				else{ 
+					this[i] = arrayElem[count];
+					count++;
+				}      
+			}
+		},
+
+		_slice: function(begin, end){
+			var newArray = {};
+			if(begin < 0){
+				for(var i = 0; 0 != begin; i++){
+					newArray[i] = this[this.length + begin];
+					begin++;	
+
+					if(begin == 0){
+						return newArray;
+					}
+
+				}
+			}
+
+			var count = begin || 0;
+			var length = end || this.length;
+			for(var i = count; i < length; i++){
+				newArray[i] = this[i];
+			}
+
+			return newArray;
+		},
+
+		_reverse: function(){			
+			//Почему бы и нет? =)
+			for(var i = 0; i < this.length / 2; i++){
+				var buf = this[i];				
+				this[i] = this[(this.length - 1) - i];
+				this[(this.length - 1) - i] = buf;
+			}
+			return this;
+		},
+
+		_sort: function(){
+			for(var i = 0; i < this.length; i++){
+				
+				for(var j = i + 1; j < this.length; j++){
+
+					if(this[i] > this[j]){						
+						var buf = this[j];
+						this[j] = this[i];						
+						this[i] = buf;
+						i--;
+						j--;
+					}				
+				}
+			}
+		},
+
+		_splice: function(start, deleteCount){			
+			var arrayElem = [];
+			var argArray = [];
+
+			if(arguments.length > 2){
+				for(var i = 0; i < arguments.length - 2; i++){
+					argArray[i] = arguments[(arguments.length -1)- i];
+					console.log(argArray);
+				}
+			}
+
+
+			for(var i = 0; i < this.length; i++){	
+
+				if(deleteCount != 0){
+					for(var j = 0; j < deleteCount; j++){							
+						arrayElem[j] = this[start];
+						this[start] = argArray[j]
+						start++;
+					}
+					return arrayElem;
+				}
+
+				if(i >= start){
+					arrayElem[i - start] = this[i];
+					delete this[i];
+				}				
+			}
+			
+			return arrayElem;
+		}
+
+	}
+
+	
+
+
+</script>
+</body>
+</html>
