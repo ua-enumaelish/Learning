@@ -32,6 +32,47 @@
 									<li class="list-group-item border-0">
 										Push
 									</li>
+									<li class="list-group-item border-0">
+										Shift
+									</li>
+									<li class="list-group-item border-0">
+										Join
+									</li>
+									<li class="list-group-item border-0">
+										Concat
+									</li>
+									<li class="list-group-item border-0">
+										Pop
+									</li>
+									<li class="list-group-item border-0">
+										Unshift
+									</li>
+									<li class="list-group-item border-0">
+										Slice
+									</li>
+									<li class="list-group-item border-0">
+										Reverse
+									</li>
+									<li class="list-group-item border-0">
+										Sort
+									</li>
+									<li class="list-group-item border-0">
+										Splice
+									</li>
+								</ul>
+							</li>
+							<li class="list-group-item border-0">
+								Свойства:
+								<ul class="list-group">
+									<li class="list-group-item border-0">
+										Index
+									</li>
+									<li class="list-group-item border-0">
+										Input
+									</li>
+									<li class="list-group-item border-0">
+										Length
+									</li>
 								</ul>
 							</li>
 						</ul>
@@ -51,8 +92,10 @@
 <script>
 
 
-	function MyArray(){
+	function MyArray(input){
 		this.length = 0
+		
+		
 	}
 
 	MyArray.prototype = {
@@ -82,12 +125,9 @@
 		},
 
 		_join: function(separator){
-			if(this.length == 0){
-				return '';
-			}
-
+			
 			if(!this[0]){
-				var result = '';
+				return result = '';
 			}
 			else{
 				var result = this[0];
@@ -124,7 +164,6 @@
 
 		_unshift: function(elem){
 			var arrayElem = [];
-			var count = 0;
 			for(var i = 0; i < this.length; i++){
 				arrayElem[i] = this[i];
 				if(arguments[i]){
@@ -132,8 +171,7 @@
 					this.length++;
 				}      
 				else{ 
-					this[i] = arrayElem[count];
-					count++;
+					this[i] = arrayElem[i - arguments.length];
 				}      
 			}
 		},
@@ -155,9 +193,10 @@
 			var count = begin || 0;
 			var length = end || this.length;
 			for(var i = count; i < length; i++){
-				newArray[i] = this[i];
+				newArray[i] = this[i];				
 			}
 
+			newArray.length = Object.keys(newArray).length;
 			return newArray;
 		},
 
@@ -188,40 +227,31 @@
 		},
 
 		_splice: function(start, deleteCount){			
-			var arrayElem = [];
-			var argArray = [];
-
-			if(arguments.length > 2){
-				for(var i = 0; i < arguments.length - 2; i++){
-					argArray[i] = arguments[(arguments.length -1)- i];
-					console.log(argArray);
-				}
-			}
-
-
+			var arrayElem = {};
+			
 			for(var i = 0; i < this.length; i++){	
 
-				if(deleteCount != 0){
+				if(deleteCount){
 					for(var j = 0; j < deleteCount; j++){							
 						arrayElem[j] = this[start];
-						this[start] = argArray[j]
+						delete this[start];
 						start++;
 					}
+					arrayElem.length = Object.keys(arrayElem).length;
 					return arrayElem;
 				}
 
+				//Удаляет все элементы после индекса
 				if(i >= start){
 					arrayElem[i - start] = this[i];
-					delete this[i];
+					delete this[i];	
+					this.length--;				
 				}				
 			}
-			
+			arrayElem.length = Object.keys(arrayElem).length;
 			return arrayElem;
 		}
-
 	}
-
-	
 
 
 </script>
