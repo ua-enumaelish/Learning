@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Students (lesson 14)</title>
+	<title>Students (lesson 14) - improved</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-8 pt-2">
 				<h1 class="mb-4 text-light text-center">
-					Students (lesson 14)
+					Students (lesson 14) - improved
 				</h1>
 			</div>
 			<div class="offset-2"></div>
@@ -31,116 +31,73 @@
 				</ul>
 			</div>
 		</div>	
-		<div class="row table-student d-none pt-2">
-			<div class="offset-2"></div>
-			<div class="col-8">
-				<table class="table table-borderless table-dark">
-					<tbody>
-						
-					</tbody>
-				</table>
-			</div>
-			<div class="offset-2"></div>
-		</div>	
-		<div class="row pt-2">
-			<div class="offset-4"></div>
-			<div class="col-2">
-				<div class="form-group">
-					<input class="nameInput form-control form-control-sm" type="text" placeholder="Name student">
-				</div>
-			</div>
-			<div class="col-2">
-				<select class="subject form-control form-control-sm">
-					<option>Math</option>
-					<option>Chemistry</option>
-					<option>Biology</option>
-					<option>Physics</option>
-				</select>
-			</div>
-			<div class="offset-4"></div>
-		</div>
 		<div class="row">
-			<div class="offset-5"></div>
-			<div class="col-2">
-				<button type="button" class="btnShow btn btn-dark btn-block disabled">SHOW</button>
-			</div>    
-			<div class="offset-5"></div>
-		</div>			
-	</div>
-</div>
-<script>
-	function Student(name, subject){
-		this.name = name;
-		this.subject = subject;
-		this.averageMark = 0;
-		this.markArray = this.getMarkArray();
-	}
+			<div class="offset-2"></div>
+			<div class="col-8 table-marks">
+				
+			</div>
+			<div class="offset-2"></div>
+		</div>
+	</div>			
 
-	Student.prototype = {
-		constructor: Student,
-
-		getMarkArray: function(){
-			var markArray = [];
-			
-			for(var i = 0; i < 10; i++){
-				markArray.push(Math.floor(Math.random()*11)+1);
-				this.averageMark += markArray[i];
-			} 
-			this.averageMark /= markArray.length;
-			return markArray;
+	<script>
+		function Student(name, subject){
+			this.averageMark = this.averageMark();
 		}
-	}
 
-	var btnShow = document.querySelector('.btnShow');
-	var nameInput = document.querySelector('.nameInput');
-	var subject = document.querySelector('.subject');
-	var template = ['Имя студента: ', 'Профильный предмет: ', 'Средняя оценка: ', 'Оценки: '];
-	nameInput.addEventListener('input', function(){
-		btnShow.classList.remove('disabled');
-	});
+		Student.prototype = {
+			constructor: Student,
 
+			averageMark: function(){
+				//CREATE TABLE
+				var tableMarks = document.querySelector('.table-marks');
+				var table = document.createElement('table');
+				table.classList.add('table', 'table-borderless', 'table-dark');
+				var tbody = document.createElement('tbody');
+				var trow = document.createElement('tr');
+				table.append(tbody);
 
-	btnShow.addEventListener('click', function(){
-		var tbody = document.querySelector('tbody');
-		var student = new Student(nameInput.value, subject.value);
-		var keys = Object.keys(student);
-		document.querySelector('.table-student').classList.remove('d-none');
-
-		for(var i = 0; i < template.length; i++){	
-			var tr = document.createElement('tr');		
-			var td = document.createElement('td');
-			td.innerHTML = template[i];
-			tr.append(td);
-			var td = document.createElement('td');
-			
-
-				if(student[keys[i]] instanceof Array){					
-					var trInner = document.createElement('tr');
-
-					for(var j = 0; j < student[keys[i]].length; j++){
-						var tdInner = document.createElement('td');
-						
-						tdInner.style.cssText = 
-						'border-top: none; padding-left: 0; padding-top: 0; padding-bottom: 0';
-						
-						tdInner.innerHTML = student[keys[i]][j];
-						trInner.append(tdInner);
-					}		
-						
-					td.append(trInner);	
-					tr.append(td);		
-					tbody.append(tr);				
-				}
-
-				else{
-					td.innerHTML = student[keys[i]];
-					tr.append(td);		
-					tbody.append(tr);
-				}
+				//FUNCTION
+				var markArray = [];
+				var sum = 0;
+				console.log(this);
+				for(var i = 0; i < 10; i++){
+					markArray.push(Math.floor(Math.random()*11)+1);
+					sum += markArray[i];
+					var th = document.createElement('th');
+					th.innerHTML = markArray[i];
+					trow.append(th);
+					tbody.append(trow);
+				} 
+				console.log(markArray);
+				tableMarks.append(table);
+				return sum / markArray.length;
 			}
-		});
-	
-	
+		}
+
+		var students = [
+		{
+			name: 'Adolf',
+			subject: 'Math',			
+		},
+		{
+			name: 'Johan',
+			subject: 'Biology',
+		},
+		{
+			name: 'Jack',
+			subject: 'Chemistry',
+		},
+		{
+			name: 'Adolf',
+			subject: 'Phisics',			
+		}
+		]
+
+		for(var i = 0; i < students.length; i++){
+			var createStudent = Object.assign(students[i],  new Student());
+		}
+
 	</script>
 </body>
 </html>
