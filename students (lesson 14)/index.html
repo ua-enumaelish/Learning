@@ -41,61 +41,72 @@
 	</div>			
 
 	<script>
-		function Student(name, subject){
+		function Marks(){
 			this.averageMark = this.averageMark();
 		}
 
-		Student.prototype = {
-			constructor: Student,
-
+		Marks.prototype = {
+			constructor: Marks,
 			averageMark: function(){
-				//CREATE TABLE
+				var markArray = [];
+				var sum = 0;
+				for(var i = 0; i < 10; i++){
+					markArray.push(Math.floor(Math.random()*11)+1);
+					sum += markArray[i];
+					var th = document.createElement('th');
+					th.innerHTML = markArray[i];
+				} 
+				this.getTable(markArray);
+				return sum / markArray.length;
+			},
+
+			getTable: function(markArray){				
 				var tableMarks = document.querySelector('.table-marks');
 				var table = document.createElement('table');
 				table.classList.add('table', 'table-borderless', 'table-dark');
 				var tbody = document.createElement('tbody');
 				var trow = document.createElement('tr');
 				table.append(tbody);
-
-				//FUNCTION
-				var markArray = [];
-				var sum = 0;
-				console.log(this);
-				for(var i = 0; i < 10; i++){
-					markArray.push(Math.floor(Math.random()*11)+1);
-					sum += markArray[i];
+				for(var i = 0; i < markArray.length; i++){
 					var th = document.createElement('th');
 					th.innerHTML = markArray[i];
 					trow.append(th);
 					tbody.append(trow);
-				} 
-				console.log(markArray);
+				}
 				tableMarks.append(table);
-				return sum / markArray.length;
 			}
 		}
 
 		var students = [
 		{
 			name: 'Adolf',
-			subject: 'Math',			
+			subject: 'Math',
+			averageMark: 0
 		},
 		{
 			name: 'Johan',
 			subject: 'Biology',
+			averageMark: 0
 		},
 		{
 			name: 'Jack',
 			subject: 'Chemistry',
+			averageMark: 0
 		},
 		{
-			name: 'Adolf',
-			subject: 'Phisics',			
+			name: 'Yusuf',
+			subject: 'Phisics',	
+			averageMark: 0		
 		}
 		]
 
 		for(var i = 0; i < students.length; i++){
-			var createStudent = Object.assign(students[i],  new Student());
+			var studentInfo = document.createElement('h5');
+			
+			document.querySelector('.table-marks').append(studentInfo);
+			var createStudent = Object.assign(students[i],  new Marks());
+
+			studentInfo.innerHTML = 'NAME: '+ students[i].name + ' / '+' SUBJECT: '+ students[i].subject + ' - ' + ' AVERAGE MARK: ' + students[i].averageMark;
 		}
 
 	</script>
