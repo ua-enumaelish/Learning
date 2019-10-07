@@ -104,7 +104,7 @@
 			var studentInfo = document.createElement('h5');
 			
 			document.querySelector('.table-marks').append(studentInfo);
-			var createStudent = Object.assign(students[i],  new Marks());
+			Object.assign(students[i],new Marks());
 
 			studentInfo.innerHTML = 'NAME: '+ students[i].name + ' / '+' SUBJECT: '+ students[i].subject + ' - ' + ' AVERAGE MARK: ' + students[i].averageMark;
 		}
