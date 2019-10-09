@@ -102,7 +102,7 @@
 	MyArray.prototype = {
 		constructor: MyArray,
 
-		_push: function(elem){
+		push: function(elem){
 			if(arguments.length > 1){
 				for(var i = 0; i < arguments.length; i++){
 					this._push(arguments[i]);
@@ -115,7 +115,7 @@
 			return this.length;
 		},
 
-		_shift: function(){
+		shift: function(){
 			var result = this[0];
 			for(var i = 0; i < this.length; i++){
 				this[i] = this[i + 1];       
@@ -125,7 +125,7 @@
 			return result;
 		},
 
-		_join: function(separator){
+		join: function(separator){
 			
 			if(!this[0]){
 				return result = '';
@@ -145,7 +145,7 @@
 			return result;
 		},
 
-		_concat: function(array){    
+		concat: function(array){    
 			for(var i = 0; i < array.length; i++){
 				this[this.length] = array[i];
 				this.length++;
@@ -153,7 +153,7 @@
 			return this;
 		},
 
-		_pop: function(){
+		pop: function(){
 			if(this.length == 0){
 				return undefined;
 			}
@@ -163,7 +163,7 @@
 			return result;
 		},
 
-		_unshift: function(elem){
+		unshift: function(elem){
 			var arrayElem = [];
 			for(var i = 0; i < this.length; i++){
 				arrayElem[i] = this[i];
@@ -177,7 +177,7 @@
 			}
 		},
 
-		_slice: function(begin, end){
+		slice: function(begin, end){
 			var newArray = {};
 			if(begin < 0){
 				for(var i = 0; 0 != begin; i++){
@@ -201,7 +201,7 @@
 			return newArray;
 		},
 
-		_reverse: function(){			
+		reverse: function(){			
 			//Почему бы и нет? =)
 			for(var i = 0; i < this.length / 2; i++){
 				var buf = this[i];				
@@ -211,7 +211,7 @@
 			return this;
 		},
 
-		_sort: function(){
+		sort: function(){
 			for(var i = 0; i < this.length; i++){
 				
 				for(var j = i + 1; j < this.length; j++){
@@ -227,7 +227,7 @@
 			}
 		},
 
-		_splice: function(start, deleteCount){			
+		splice: function(start, deleteCount){			
 			var arrayElem = {};
 			
 			for(var i = 0; i < this.length; i++){	

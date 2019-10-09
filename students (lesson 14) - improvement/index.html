@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Students (lesson 14) - improvment</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Students (lesson 14) - improvment
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать массив Студентов. Каждый студент содержит среднюю оценку, имя,
+						профилирующий предмет. Средняя оценка высчитывается в момент создания
+						студента из массива оценок. Массив оценок создается рандомно.
+						Вывести данный массив в виде таблицы.
+					</li>					
+				</ul>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="offset-2"></div>
+			<div class="col-8 table-marks">
+				
+			</div>
+			<div class="offset-2"></div>
+		</div>
+	</div>			
+
+	<script>
+		function Student(name, subject, sum){
+			this.name = name;
+			this.subject = subject;
+			this.averageMark = sum / 10;
+		}
+
+		var students = [];
+		students.push(new Student('Adolf Hitler', 'Nazism', getMarks()));
+		students.push(new Student('Winston Churchill', 'Сonstitutional monarchy', getMarks()));
+		students.push(new Student('Joseph  Stalin', 'Communism', getMarks()));
+		students.push(new Student('Franklin D. Roosevelt', 'Democracy ', getMarks()));
+
+		function getMarks(){
+			markArray = [];
+			sum = 0;
+			for(var i = 0; i < 10; i++){
+				markArray.push(Math.floor(Math.random()*11)+1);				
+				sum += markArray[i];				
+			}
+			getTable(markArray);
+			return sum;			
+		}
+
+		function getTable(array){
+			var tableMarks = document.querySelector('.table-marks');
+			var table = document.createElement('table');
+			table.classList.add('table', 'table-borderless', 'table-dark');
+			var tbody = document.createElement('tbody');
+			var trow = document.createElement('tr');
+			table.append(tbody);
+
+			for(var i = 0; i < markArray.length; i++){
+				var th = document.createElement('th');
+				th.innerHTML = markArray[i];
+				trow.append(th);
+				tbody.append(trow);
+			}
+			tableMarks.append(table);	
+		}
+
+
+
+
+		console.log(students);
+
+
+	</script>
+</body>
+</html>
