@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Students (lesson 14) - improved</title>
+	<title>Students (lesson 14)</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-8 pt-2">
 				<h1 class="mb-4 text-light text-center">
-					Students (lesson 14) - improved
+					Students (lesson 14)
 				</h1>
 			</div>
 			<div class="offset-2"></div>
@@ -41,58 +41,48 @@
 	</div>			
 
 	<script>
-		function Student(name, subject){
+		function Student(name, subject, sum){
 			this.name = name;
 			this.subject = subject;
-			this.averageMark = this.averageMark();
+			this.averageMark = sum / 10;
 		}
 
-		Student.prototype = {
-			constructor: Student,
-			averageMark: function(){
-				var markArray = [];
-				var sum = 0;
-				for(var i = 0; i < 10; i++){
-					markArray.push(Math.floor(Math.random()*11)+1);
-					sum += markArray[i];
-					var th = document.createElement('th');
-					th.innerHTML = markArray[i];
-				} 
-				this.getTable(markArray);
-				return sum / markArray.length;
-			},
+		var students = [];
+		students.push(new Student('Adolf Hitler', 'Nazism', getMarks()));
+		students.push(new Student('Winston Churchill', 'Сonstitutional monarchy', getMarks()));
+		students.push(new Student('Joseph  Stalin', 'Communism', getMarks()));
+		students.push(new Student('Franklin D. Roosevelt', 'Democracy ', getMarks()));
 
-			getTable: function(markArray){				
-				var tableMarks = document.querySelector('.table-marks');
-				var table = document.createElement('table');
-				table.classList.add('table', 'table-borderless', 'table-dark');
-				var tbody = document.createElement('tbody');
-				var trow = document.createElement('tr');
-				table.append(tbody);
-				for(var i = 0; i < markArray.length; i++){
-					var th = document.createElement('th');
-					th.innerHTML = markArray[i];
-					trow.append(th);
-					tbody.append(trow);
-				}
-				tableMarks.append(table);
+		function getMarks(){
+			markArray = [];
+			sum = 0;
+			for(var i = 0; i < 10; i++){
+				markArray.push(Math.floor(Math.random()*11)+1);				
+				sum += markArray[i];				
 			}
+			getTable(markArray);
+			return sum;			
 		}
 
-		var studentsName = ['Adolf', 'German', 'Yusuf', 'Jack'];
-		var subjects = ['Phisics', 'Chemistry', 'Biology', 'Math'];
-		var studentsArray = [];
-		
-		for(var i = 0; i < studentsName.length; i++){
-			var studentInfo = document.createElement('h5');
-			document.querySelector('.table-marks').append(studentInfo);
+		function getTable(array){
+			var tableMarks = document.querySelector('.table-marks');
+			var table = document.createElement('table');
+			table.classList.add('table', 'table-borderless', 'table-dark');
+			var tbody = document.createElement('tbody');
+			var trow = document.createElement('tr');
+			table.append(tbody);
 
-			studentsArray.push(new Student(studentsName[i], subjects[i]));
-
-			studentInfo.innerHTML = 'NAME: '+ studentsArray[i].name + ' / '+' SUBJECT: '+ studentsArray[i].subject + ' - ' + ' AVERAGE MARK: ' + studentsArray[i].averageMark;
+			for(var i = 0; i < markArray.length; i++){
+				var th = document.createElement('th');
+				th.innerHTML = markArray[i];
+				trow.append(th);
+				tbody.append(trow);
+			}
+			tableMarks.append(table);	
 		}
-		
-		
+
+		console.log(students);
+
 
 	</script>
 </body>
