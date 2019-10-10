@@ -74,7 +74,7 @@
 
 
 	var cars = [],
-			parkingList = [];
+	parkingList = [];
 
 	cars.push(new Car('BMW', 'X5'));
 	cars.push(new Car('Mitsubishi', 'Pagero'));
@@ -86,7 +86,29 @@
 	parkingList.push(new ParkingList('777EE', 'Driver 3'));
 	
 
-	
+	for(var i = 0; i < cars.length; i++){
+		getTable(Object.assign(parkingList[i], cars[i]));
+	}
+
+	function getTable(obj){
+		var tableMarks = document.querySelector('.table-marks');
+		var table = document.createElement('table');
+		table.classList.add('table', 'table-borderless', 'table-dark');
+		var tbody = document.createElement('tbody');
+		var trow = document.createElement('tr');
+		table.append(tbody);
+
+		for(key in obj){
+			var th = document.createElement('th');
+			th.innerHTML = obj[key];
+			trow.append(th);
+			tbody.append(trow);
+		}
+
+		tableMarks.append(table);
+
+	}
+
 </script>
 </body>
 </html>
