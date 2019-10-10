@@ -65,48 +65,46 @@
 		this.model = model;
 	}
 
-	function ParkingList(number, driver, auto, model){		
+	function ParkingList(number, driver, obj){		
 		this.number = number;
 		this.driver = driver;
-		Car.call(this, auto, model);		
+		Car.call(this, obj.auto, obj.model);		
 	}
-
-
 
 	var cars = [],
 	parkingList = [];
 
 	cars.push(new Car('BMW', 'X5'));
-	cars.push(new Car('Mitsubishi', 'Pagero'));
-	cars.push(new Car('Mercedes-Benz', 'GLE-450'));
-	
-	
-	parkingList.push(new ParkingList('2323AA', 'Driver 1'));
-	parkingList.push(new ParkingList('232UE', 'Driver 2'));
-	parkingList.push(new ParkingList('777EE', 'Driver 3'));
-	
+	cars.push(new Car('Mitsubishi', 'Lancer'));
+	cars.push(new Car('Ford', 'Focus'));
 
-	for(var i = 0; i < cars.length; i++){
-		getTable(Object.assign(parkingList[i], cars[i]));
-	}
+	parkingList.push(new ParkingList('2323AA', 'Driver 1', getCar(cars)));
+	parkingList.push(new ParkingList('2773AA', 'Driver 2', getCar(cars)));
+	parkingList.push(new ParkingList('A88AA', 'Driver 3', getCar(cars)));
 
-	function getTable(obj){
+	function getCar(cars){
+		return cars.shift();
+	}	
+
+	getTable(parkingList);
+
+	function getTable(array){
 		var tableMarks = document.querySelector('.table-marks');
 		var table = document.createElement('table');
 		table.classList.add('table', 'table-borderless', 'table-dark');
 		var tbody = document.createElement('tbody');
-		var trow = document.createElement('tr');
 		table.append(tbody);
 
-		for(key in obj){
-			var th = document.createElement('th');
-			th.innerHTML = obj[key];
-			trow.append(th);
+		for(var i = 0; i < array.length; i++){
+			var trow = document.createElement('tr');
+			for(var key in array[i]){
+				var th = document.createElement('th');
+				th.innerHTML = array[i][key];
+				trow.append(th);
+			}	
 			tbody.append(trow);
 		}
-
-		tableMarks.append(table);
-
+		tableMarks.append(table);	
 	}
 
 </script>
