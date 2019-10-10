@@ -78,13 +78,9 @@
 	cars.push(new Car('Mitsubishi', 'Lancer'));
 	cars.push(new Car('Ford', 'Focus'));
 
-	parkingList.push(new ParkingList('2323AA', 'Driver 1', getCar(cars)));
-	parkingList.push(new ParkingList('2773AA', 'Driver 2', getCar(cars)));
-	parkingList.push(new ParkingList('A88AA', 'Driver 3', getCar(cars)));
-
-	function getCar(cars){
-		return cars.shift();
-	}	
+	parkingList.push(new ParkingList('2323AA', 'Driver 1', cars.shift()));
+	parkingList.push(new ParkingList('2773AA', 'Driver 2', cars.shift()));
+	parkingList.push(new ParkingList('A88AA', 'Driver 3', cars.shift()));
 
 	getTable(parkingList);
 
