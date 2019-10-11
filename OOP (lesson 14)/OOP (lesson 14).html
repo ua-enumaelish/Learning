@@ -5,6 +5,7 @@
 	<title>OOP (lesson 14)</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 	<div class="container">
@@ -20,10 +21,7 @@
 			<div class="offset-2"></div>
 		</div>
 		<div class="row">
-			<div class="col-12">
-				<h3 class="mb-4 text-light text-center">
-					Задача 0
-				</h3>
+			<div class="col-12">			
 				<ul class="list-group">
 					<li class="list-group-item border-0">
 						Создать объект “Дом” со свойствами: окна и двери, значениями которых будет цвет.
@@ -34,7 +32,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 pb-3 border-bottom text-center">
+			<div class="col-12 pb-4 border-bottom text-center">
 				<h4 class="text-center mt-5 mb-3 ">
 					House
 				</h4>	
@@ -48,28 +46,113 @@
 			</div>
 		</div>	
 
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать объект "Автомобиль". У него будут следующие свойства: модель, марка и
+						пробег и объект "Владелец" и следующие методы: проехать  функция принимает один
+						параметр  количество километров. Объект владелец имеет свойства: имя, фамилия,
+						возраст и методы: изменить фамилию. Протестируйте объект
+					</li>		
+				</ul>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-12 pb-3 text-center">
+				<h4 class="text-center mt-5 mb-3 ">
+					Car
+				</h4>	
+				<table class="table table-hover table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Car</th>
+							<th scope="col">Model</th>
+							<th scope="col">Mileage</th>
+							<th scope="col">Owner</th>	
+							<th scope="col">Age</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Mitsubishi</td>
+							<td>Lancer</td>
+							<td class="mileage"></td>
+							<td class="nameOwner"></td>
+							<td>50</td>
+						</tr>						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row  border-bottom">
+			<div class="col-5"></div>
+			<div class="col-2 mt-3 mb-3 text-center"> 
+				<input type="text" class="valueMileage form-control text-center" id="validationDefault01" placeholder="Mileage" required>
+				<button type="button" class="changeBtn mt-3 btn btn-secondary">Change</button>
+			</div>
+			<div class="col-5"></div>
+		</div>
+		
+
+		<div class="row">
+			<div class="col-12">
+				<h4 class="text-center mt-5 mb-3 ">
+					Rabbit
+				</h4>				
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать конструктор Rabbit, который будет создавать объекты, у которых есть
+						свойство “color” и метод “change color”. Конструктор принимает как параметр функции
+						первоначальный цвет кролика. Создайте двух кроликов разного цвета и поменяйте им
+						цвет на золотой
+					</li>		
+				</ul>
+			</div>
+		</div>
+		<div class="row border-bottom">
+			<div class="col-12 pb-4 text-center">
+				<h3 class="text-secondary">
+					This is not a rabbit, this is a frog. Because frog is free.
+				</h3>	
+				<div class="d-flex justify-content-around">
+					<div>
+						<p class="firstFrog">I'm a <span class="textFirst"></span> frog</p>	
+						<span style="font-size: 3em;">		
+							<i class="first fas fa-frog"></i>	
+						</span>
+					</div>
+					<div>
+						<p class="secondFrog">I'm a <span class="textSecond"></span> frog</p>	
+						<span style="font-size: 3em;">		
+							<i class="second fas fa-frog"></i>	
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>		
 	</div>
-</div>
-<script>
-	
+	<script>
+
+	//-----------------HOUSE-------------------
 	var house = {		
-			window: '',
-			door: '',
-			paintingWindow: function(){
-				this.window = this.getColor();
-			},
-			paintingDoor: function(){
-				this.door = this.getColor();
-			},
-			paintingAll: function(){
-				this.window = this.getColor();
-				this.door = this.getColor();
-			},
-			getColor: function(){
-				var colors = ['red', 'blue', 'orange', 'green', 'coral', 'grey', 'aqua'];
-				return colors[Math.floor(Math.random()*colors.length)];
-			}
+		window: '',
+		door: '',
+		paintingWindow: function(){
+			this.window = this.getColor();
+		},
+		paintingDoor: function(){
+			this.door = this.getColor();
+		},
+		paintingAll: function(){
+			this.window = this.getColor();
+			this.door = this.getColor();
+		},
+		getColor: function(){
+			var colors = ['red', 'blue', 'orange', 'green', 'coral', 'grey', 'aqua'];
+			return colors[Math.floor(Math.random()*colors.length)];
 		}
+	}
 
 
 	setInterval(function(){
@@ -85,8 +168,74 @@
 		document.querySelector('.window').setAttribute('style', style);
 	}, 2000);
 
-	
+	//-----------------CAR-----------------------------
+	var car = {
+		car: 'Mitsubishi',
+		model: 'Lancer',
+		mileage: 20000,
+		go: function(km){
+			this.mileage += km;
+		},
+		owner: {
+			name: "Iwasaki",
+			surname: 'Yataro',
+			age: 50,
+			changeSurname: function(){
+				this.surname = 'Suzuki'
+			}
+		}
+	}
+	var changeBtn = document.querySelector('.changeBtn');
+
+	document.querySelector('.nameOwner').innerHTML = car.owner.name + ' ' + car.owner.surname;
+	document.querySelector('.mileage').innerHTML = car.mileage;	
+
+	changeBtn.addEventListener('click', function(){
+		car.owner.changeSurname();
+		document.querySelector('.nameOwner').innerHTML = car.owner.name + ' ' + car.owner.surname;
+
+		var valueMileage = document.querySelector('.valueMileage').value;
+		car.go(+valueMileage);
+		document.querySelector('.mileage').innerHTML = car.mileage;
+	});
+
+//-----------------------RABBIT / FROG-----------------------------
+
+function Frog(callback){
+	// console.log(callback);
+	this.color = 'a';
+	this.changeColor = function(callback){
+		this.color = callback();
+	}
+}
+
+colorsArray = function(){
+	var colors = ['aqua', 'orange', 'coral', 'tomato', 'gold', 'green', 'blue', 'red'];
+	return colors[Math.floor(Math.random()*colors.length)];
+}
+
+var firstFrog = new Frog();
+setInterval(function(){	
+	firstFrog.changeColor(colorsArray);	
+	var style = 'color:' + firstFrog.color;
+	document.querySelector('.first').setAttribute('style', style);
+	document.querySelector('.firstFrog').setAttribute('style', style);
+	document.querySelector('.textFirst').innerHTML = firstFrog.color;
+}, 1500);
+
+var secondFrog = new Frog();
+setInterval(function(){	
+	secondFrog.changeColor(colorsArray);	
+	var style = 'color:' + secondFrog.color;
+	document.querySelector('.second').setAttribute('style', style);
+	document.querySelector('.secondFrog').setAttribute('style', style);
+	document.querySelector('.textSecond').innerHTML = secondFrog.color;
+}, 1500);
+
+
 
 </script>
+
+<script src="https://kit.fontawesome.com/8a1832d43a.js" crossorigin="anonymous"></script>
 </body>
 </html>

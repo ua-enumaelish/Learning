@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Array</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					My Array
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать конструктор MyArray, который создает объект со следующими методами и
+						свойствами:
+						<ul class="list-group">
+							<li class="list-group-item border-0">
+								Методы:
+								<ul class="list-group">
+									<li class="list-group-item border-0">
+										Push
+									</li>
+									<li class="list-group-item border-0">
+										Shift
+									</li>
+									<li class="list-group-item border-0">
+										Join
+									</li>
+									<li class="list-group-item border-0">
+										Concat
+									</li>
+									<li class="list-group-item border-0">
+										Pop
+									</li>
+									<li class="list-group-item border-0">
+										Unshift
+									</li>
+									<li class="list-group-item border-0">
+										Slice
+									</li>
+									<li class="list-group-item border-0">
+										Reverse
+									</li>
+									<li class="list-group-item border-0">
+										Sort
+									</li>
+									<li class="list-group-item border-0">
+										Splice
+									</li>
+								</ul>
+							</li>
+							<li class="list-group-item border-0">
+								Свойства:
+								<ul class="list-group">
+									<li class="list-group-item border-0">
+										Index
+									</li>
+									<li class="list-group-item border-0">
+										Input
+									</li>
+									<li class="list-group-item border-0">
+										Length
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>										
+				</ul>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom">
+				<h4 class="text-center mt-5 mb-5 ">
+					CONTAINER
+				</h4>				
+			</div>
+		</div>			
+	</div>
+</div>
+<script>
+
+
+	function MyArray(input){
+		this.length = 0
+		this.index = /\w+/g.exec('This is a test string').index;
+
+		
+	}
+
+	MyArray.prototype = {
+		constructor: MyArray,
+
+		push: function(elem){
+			if(arguments.length > 1){
+				for(var i = 0; i < arguments.length; i++){
+					this._push(arguments[i]);
+				}
+			}
+			else{
+				this[this.length] = elem;
+				this.length++;
+			}
+			return this.length;
+		},
+
+		shift: function(){
+			var result = this[0];
+			for(var i = 0; i < this.length; i++){
+				this[i] = this[i + 1];       
+			}    
+			delete this[this.length-1];  
+			this.length--;
+			return result;
+		},
+
+		join: function(separator){
+			
+			if(!this[0]){
+				return result = '';
+			}
+			else{
+				var result = this[0];
+			}
+
+			for(var i = 0; i < this.length - 1; i++){
+				result += separator || ',';
+
+				if(!this[i+1]){
+					this[i+1] = ' ';
+				}      
+				result += this[i+1];
+			}    
+			return result;
+		},
+
+		concat: function(array){    
+			for(var i = 0; i < array.length; i++){
+				this[this.length] = array[i];
+				this.length++;
+			}     
+			return this;
+		},
+
+		pop: function(){
+			if(this.length == 0){
+				return undefined;
+			}
+			var result = this[this.length-1];
+			delete this[this.length-1];
+			this.length--;
+			return result;
+		},
+
+		unshift: function(elem){
+			var arrayElem = [];
+			for(var i = 0; i < this.length; i++){
+				arrayElem[i] = this[i];
+				if(arguments[i]){
+					this[i] = arguments[i];
+					this.length++;
+				}      
+				else{ 
+					this[i] = arrayElem[i - arguments.length];
+				}      
+			}
+		},
+
+		slice: function(begin, end){
+			var newArray = {};
+			if(begin < 0){
+				for(var i = 0; 0 != begin; i++){
+					newArray[i] = this[this.length + begin];
+					begin++;	
+
+					if(begin == 0){
+						return newArray;
+					}
+
+				}
+			}
+
+			var count = begin || 0;
+			var length = end || this.length;
+			for(var i = count; i < length; i++){
+				newArray[i] = this[i];				
+			}
+
+			newArray.length = Object.keys(newArray).length;
+			return newArray;
+		},
+
+		reverse: function(){			
+			//Почему бы и нет? =)
+			for(var i = 0; i < this.length / 2; i++){
+				var buf = this[i];				
+				this[i] = this[(this.length - 1) - i];
+				this[(this.length - 1) - i] = buf;
+			}
+			return this;
+		},
+
+		sort: function(){
+			for(var i = 0; i < this.length; i++){
+				
+				for(var j = i + 1; j < this.length; j++){
+
+					if(this[i] > this[j]){						
+						var buf = this[j];
+						this[j] = this[i];						
+						this[i] = buf;
+						i--;
+						j--;
+					}				
+				}
+			}
+		},
+
+		splice: function(start, deleteCount){			
+			var arrayElem = {};
+			
+			for(var i = 0; i < this.length; i++){	
+
+				if(deleteCount){
+					for(var j = 0; j < deleteCount; j++){							
+						arrayElem[j] = this[start];
+						delete this[start];
+						start++;
+					}
+					arrayElem.length = Object.keys(arrayElem).length;
+					return arrayElem;
+				}
+
+				//Удаляет все элементы после индекса
+				if(i >= start){
+					arrayElem[i - start] = this[i];
+					delete this[i];	
+					this.length--;				
+				}				
+			}
+			arrayElem.length = Object.keys(arrayElem).length;
+			return arrayElem;
+		}
+	}
+
+array = new MyArray();
+array._push('Austria');
+console.log(array.index);
+</script>
+</body>
+</html>

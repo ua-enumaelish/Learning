@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Parking (lesson 14)</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Parking (lesson 14)
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать базу данных автомобилей на стоянке (минимум 10) с помощью объектов,
+						вывести в виде таблицы.
+					</li>
+					<li class="list-group-item border-0">
+						Ход выполнения:
+						<ul class="list-group">
+							<li class="list-group-item border-0">
+								Создать конструктор справочника автомобилей (марка, модель);
+							</li>
+							<li class="list-group-item border-0">
+								Создать конструктор списка автомобилей на стоянке (номер, владелец, ссылка
+								на справочник);
+							</li>
+							<li class="list-group-item border-0">
+								Создать массив объектов записей справочника типов автомобилей;
+							</li>
+							<li class="list-group-item border-0">
+								Создать массив объектов для списка автомобилей на стоянке;
+							</li>
+							<li class="list-group-item border-0">
+								Сгенерировать HTML код таблицы и вывести в поток методом write;
+							</li>
+						</ul>
+					</li>						
+				</ul>
+			</div>
+		</div>			
+		<div class="row">
+			<div class="offset-2"></div>
+			<div class="col-8 table-marks">
+				
+			</div>
+			<div class="offset-2"></div>
+		</div>		
+	</div>
+</div>
+<script>
+	function Car(auto, model){
+		this.auto = auto;
+		this.model = model;
+	}
+
+	function ParkingList(number, driver, obj){		
+		this.number = number;
+		this.driver = driver;
+		Car.call(this, obj.auto, obj.model);		
+	}
+
+	var cars = [],
+	parkingList = [];
+
+	cars.push(new Car('BMW', 'X5'));
+	cars.push(new Car('Mitsubishi', 'Lancer'));
+	cars.push(new Car('Ford', 'Focus'));
+
+	parkingList.push(new ParkingList('2323AA', 'Driver 1', cars.shift()));
+	parkingList.push(new ParkingList('2773AA', 'Driver 2', cars.shift()));
+	parkingList.push(new ParkingList('A88AA', 'Driver 3', cars.shift()));
+
+	getTable(parkingList);
+
+	function getTable(array){
+		var tableMarks = document.querySelector('.table-marks');
+		var table = document.createElement('table');
+		table.classList.add('table', 'table-borderless', 'table-dark');
+		var tbody = document.createElement('tbody');
+		table.append(tbody);
+
+		for(var i = 0; i < array.length; i++){
+			var trow = document.createElement('tr');
+			for(var key in array[i]){
+				var th = document.createElement('th');
+				th.innerHTML = array[i][key];
+				trow.append(th);
+			}	
+			tbody.append(trow);
+		}
+		tableMarks.append(table);	
+	}
+
+</script>
+</body>
+</html>
