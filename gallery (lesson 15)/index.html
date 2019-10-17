@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery - lesson 15</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Gallery - lesson 15
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Написать html страницу с галереей (так же ее могут называть каруселью) не используя никакие фреймворки и библиотеки javascript. Единственно требование к галерее - чтобы она работала и хотя бы отдаленно напоминала галереи которые вы можете найти в интернете.
+					</li>											
+				</ul>
+			</div>
+		</div>			
+		<div class="row">
+			<div class="col-12 pb-3 border-bottom">
+				<h4 class="text-center mt-5 mb-5 ">
+					Gallery
+				</h4>	
+			</div>
+		</div>	
+		<div class="row pt-2 pb-3">
+			<div class="offset-2"></div>
+			<div class="gallery position-relative col-8">
+				<span class="position-absolute carousel-control-next-icon next-btn" style="top:50%; right: 25px; transform: translate(0, -50%); cursor: pointer;" aria-hidden="true"></span>
+				<span class="position-absolute carousel-control-prev-icon align-middle prev-btn" style="top:50%; left: 25px; transform: translate(0, -50%); cursor: pointer;" aria-hidden="true"></span>
+				<img src="http://oboinastol.net/katalog_kartinok/tom20/018/skachat_oboi_960x540.jpg" alt="image" class="gallery__img img-fluid d-block">
+				<img src="https://million-wallpapers.ru/wallpapers/4/73/9929974507706928446/zakat-zabor-derevya-listva-osen.jpg" alt="image" class="gallery__img img-fluid d-none">
+				<img src="https://cdni.rt.com/russian/images/2018.10/article/5bc1d61f18356189348b45c5.jpg" alt="image" class="gallery__img img-fluid d-none">
+				<img src="https://www.wkbn.com/wp-content/uploads/sites/48/2019/06/obit-generic-2.jpg" alt="image" class="gallery__img img-fluid d-none">	
+			</div>			
+			<div class="offset-2"></div>
+		</div>
+		
+	</div>
+</div>
+<script>
+
+	var carousel = (function(images){	
+		var images = images;
+		var i = 0;
+		
+		return{
+			next: function(){		
+				images[i].classList.remove('d-block');
+				images[i].classList.add('d-none');
+				i++;
+				console.log(i , images.length);
+				if(i > images.length-1){
+					i = 0;
+					images[images.length-1].classList.remove('d-block');
+					images[images.length-1].classList.add('d-none');
+
+					images[i].classList.remove('d-none');
+					images[i].classList.add('d-block');
+				}	
+				images[i].classList.remove('d-none');
+				images[i].classList.add('d-block');
+			},
+
+			prev : function(){		
+				images[i].classList.remove('d-block');
+				images[i].classList.add('d-none');
+				i--;
+				if(i < 0){
+					i = images.length-1;
+					images[0].classList.remove('d-block');
+					images[0].classList.add('d-none');
+
+					images[i].classList.remove('d-none');
+					images[i].classList.add('d-block');
+				}
+
+				images[i].classList.remove('d-none');
+				images[i].classList.add('d-block');
+			}
+		}
+	})(document.querySelectorAll('.gallery__img'));
+
+	var nextBtn = document.querySelector('.next-btn');
+	var prevBtn = document.querySelector('.prev-btn');
+
+	nextBtn.addEventListener('click', carousel.next);
+	prevBtn.addEventListener('click', carousel.prev);
+
+
+
+
+
+</script>	
+<script src="https://kit.fontawesome.com/8a1832d43a.js" crossorigin="anonymous"></script>		
+</body>
+</html>
