@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TRAFFICK LIGHT WITH REMOTE CONTROL</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+</head>
+<body>
+	<div class="container position-relative">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					TRAFFICK LIGHT WITH REMOTE CONTROL
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать пульт управления светофорами. Желательно добавить в “светофорный проект” 5ю страницу.
+						Пульт должен уметь добавить светофор и удалить, включить, выключить любой (один) из существующих светофоров на странице.
+					</li>											
+				</ul>
+			</div>
+		</div>
+		<div class="row lightContainer f-flex">
+			
+		</div>
+		
+		<div class=" col-3 border border-warning bg-light position-fixed" style="top: 50%; right:5px;">
+			<div class="container text-center pt-2 pb-2">				
+				<button type="button" class="font-weight-bold btn btn-success btn-add" onclick="remote.buildingLight()">Add</button>
+				<div class="row pt-2 ">
+					<div class="col-4 pb-3 d-flex align-items-center justify-content-between">						
+						<button type="button" class="btn btn-success" onclick="remote.getLight()"></button>
+						<button type="button" class="btn btn-danger "></button>
+					</div>
+					<div class="form-group col-4">						
+						<select class="form-control" id="exampleFormControlSelect1">
+						</select>
+					</div>
+					<div class="col-4">
+						<button type="button" class="btn btn-danger" onclick="remote.deleteLight()">Delete</button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<script src="lighting.js"></script>
+<script src="trafficLigth.js"></script>
+<script src="select.js"></script>
+<script src="timer.js"></script>
+
+<script>
+	var remote = {
+		button: document.querySelector('.btn-add'),
+		selectForm: document.querySelector('.form-control'),
+		container: document.querySelector('.lightContainer'),		
+		array: [],
+
+		buildingLight: function(){
+			var newLight = traffickLight.building(this.container);
+			select.add(newLight, this.selectForm);
+			newLight = lighting;
+		},
+
+		deleteLight: function(){
+			select.delete(this.selectForm);
+		},		
+		
+		getLight: function(){
+			var that = this;
+			var newLight = lighting;
+			var timerId = setInterval(function(){
+				newLight.light(that.container.children[that.selectForm.value - 1]);
+			},1000);
+		}
+	}	
+</script>
+</body>
+</html>
