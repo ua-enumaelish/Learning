@@ -1,39 +1,33 @@
 var lighting = (function(parent){
-	
-	var colors = ['bg-danger', 'bg-warning', 'bg-success'];
-	var count = 0;
-	var toggle = true;
 	return{
+		
+		interval: function(parent){
+			var lights = parent.children;
+			var i = 0;
+			var colors = ['bg-danger', 'bg-warning', 'bg-success'];
+			var timerId = setInterval(function(){				
+				if(i > 3){
+					i = 0;
+					lights[1].classList.remove(colors[1]);
+				};
 
-		light : function(parent){
-			if(toggle){
-				parent.children[count].classList.add(colors[count]);
+				if(lights[i]){
 
-				if(parent.children[count].previousElementSibling != null){
-					parent.children[count].previousElementSibling.classList.remove(colors[count-1]);
+					if(lights[i-1]){
+						lights[i-1].classList.remove(colors[i-1]);
+					}
+
+					lights[i].classList.add(colors[i]);
 				}
-				count++;		
 
-				if(count == 3){
-					toggle = false;
-					count--;				
-				}
-			}
+				else{
+					lights[i-1].classList.remove(colors[i-1]);
+					lights[1].classList.add(colors[1]);
+				};
 
-			if(!toggle){
-				parent.children[count].classList.add(colors[count]);
-
-				if(parent.children[count].nextElementSibling != null){
-					parent.children[count].nextElementSibling.classList.remove(colors[count+1]);
-				}
-				count--;
-				if(count < 0){
-					toggle = true;
-					count = 1;				
-				}
-			}    
-		}
-
+				i++;
+			}, 1000);
+			return timerId;
+		},
 	}
-
 })();

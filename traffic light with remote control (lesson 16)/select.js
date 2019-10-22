@@ -13,9 +13,11 @@ var select = (function(){
 			count++;
 		},
 
-		delete: function(selectForm){
+		delete: function(selectForm, array){
 			parentElement.children[selectForm.value-1].remove();
+			array.splice(selectForm.value-1, 1);			
 			selectForm.children[selectForm.value-1].remove();
+			
 			count--;
 			for(var i = 0; i < selectForm.children.length; i++){
 				selectForm.children[i].innerHTML = i + 1;
