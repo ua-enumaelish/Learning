@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FORMS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					FORMS
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Компоненты форм довольно интересны своим специфическим поведением, а также особенностями взаимодействия с пользователем. Каждый front-end разработчик рано или поздно сталкивается с задачей - “добавить к проекту нестандартно выглядящий но вполне стандартно работающий компонент формы”. То есть часть формы которая собирает у пользователя данные но выглядит как нарисовано в дизайне.
+						<ul class="list-group">
+							<li class="list-group-item border-0">
+								Реализовать модель кастомного input
+							</li>
+							<li class="list-group-item border-0">
+								Реализовать модель кастомного checkbox
+							</li>
+							<li class="list-group-item border-0">
+								Реализовать модель кастомного radiobutton
+							</li>
+							<li class="list-group-item border-0">
+								Реализовать модель кастомного Select (сложно/не обязательно/полезно)
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item border-0">
+						Каждую модель держать в отдельном файле. Создать проект (страничку index.html) к которому подключить все созданные модели. На главной странице должна быть форма состоящая из кастомных полей (минимум по 2 каждого). К форме добавить кнопку которая будет выводить (в консоль например) введенные в форму данные.
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="row pt-5 mb-4">
+			<div class="offset-1"></div>
+			<div class="col-10">
+				<h3 class="text-center">
+					New student
+				</h3>
+				<form>
+					<div class="row container-list"></div>
+					<button type="button" class="btn btn-outline-secondary mt-3 btn-form">Send form</button>
+				</form>
+			</div>
+			<div class="offset-1"></div>
+		</div>	
+	</div>
+</div>
+<script src="newInput.js"></script>
+<script src="input.js"></script>
+<script src="radio.js"></script>
+<script src="checkbox.js"></script>
+<script src="select.js"></script>
+
+<script>
+	var form = document.querySelector('form');
+	var containerList = document.querySelector('.container-list');
+	var buttonSend = document.querySelector('.btn-form');
+
+
+	containerList.append(radio.newRadio());
+	containerList.append(checkbox.newCheckbox());	
+	containerList.append(select.newSelect());
+	form.prepend(input.newInput());
+	
+
+	// EVENT
+	buttonSend.addEventListener('click', function(){
+		var select = document.querySelector('select');
+		var inputs = document.querySelectorAll('input');
+		var checkbox = [];
+
+		var table = document.createElement('table');
+		table.classList.add('table', 'table-bordered', 'mt-4');
+		var tbody = document.createElement('tbody');
+		table.append(tbody);
+		var tRow = document.createElement('tr');
+
+		for(var i = 0; i < inputs.length; i++){			
+			if(inputs[i].type == 'text'){	
+				var td = document.createElement('td');			
+				td.innerHTML = inputs[i].value;
+				tRow.append(td);				
+			}
+			if(inputs[i].checked){
+				if(inputs[i].type == 'checkbox'){		
+				console.log(inputs[i])			
+					checkbox.push(inputs[i].nextSibling.nodeValue);	
+					continue;
+				}				
+				td.append(inputs[i].nextSibling.nodeValue);
+				tRow.append(td);		
+			}	
+		}
+
+		if(checkbox.length > 0){
+			var td = document.createElement('td');
+			for(var i = 0; i < checkbox.length; i++){				
+				td.append(checkbox[i] + ' ');
+				tRow.append(td);
+			}
+		}
+
+		var td = document.createElement('td');
+		td.append(select.value);
+		tRow.append(td);
+
+
+
+		
+		tbody.append(tRow);
+		form.append(table);
+	});
+	
+</script>
+</body>
+</html>
