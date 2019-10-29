@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>FORMS</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -47,86 +48,131 @@
 		</div>
 		
 		<div class="row pt-5 mb-4">
-			<div class="offset-1"></div>
-			<div class="col-10">
-				<h3 class="text-center">
-					New student
-				</h3>
-				<form>
-					<div class="row container-list"></div>
-					<button type="button" class="btn btn-outline-secondary mt-3 btn-form">Send form</button>
+			<div class="offset-3"></div>
+			<div class="col-6 pt-3">
+				<form action="" name="new account" onsubmit="form.getForm(this); return false">
+					<ul class="list-form col-10">
+						<li class="list-form__text">
+							<label for="name">Name: </label>
+							<input type="text" placeholder="Michael Jackson" id="name" name="name" required>        
+						</li>
+						<li class="list-form__text">
+							<label for="email">Email: </label>
+							<input type="text" placeholder="m.jackson@example.com" id="email" name="email" required>        
+						</li>						
+						<li class="list-form__text">
+							<fieldset title="gender">
+								<legend>Gender</legend>
+								<input type="radio" name="gender" id="male" value="male" checked>  
+								<label class="label_radio" for="male">Male</label>
+								<input type="radio" name="gender" id="female" value="female">  
+								<label class="label_radio" for="female">Female</label>
+								<input type="radio" name="gender" id="another" value="another">  
+								<label class="label_radio" for="another">Another</label>
+							</fieldset>
+						</li>
+						<li class="list-form__text">
+							<fieldset title="languages" >
+								<legend>Knowledge of languages</legend>								
+								<input type="checkbox" name="language" id="ukrainian" value="ukrainian" checked>  
+								<label class="label_checkbox" for="ukrainian">Ukrainian</label>								
+								<input type="checkbox" name="language" id="russian" value="russian">  
+								<label class="label_checkbox" for="russian">Russian</label>							
+								<input type="checkbox" name="language" id="anotherCheckbox" value="another">  
+								<label class="label_checkbox" for="anotherCheckbox">Another</label>          
+							</fieldset>
+						</li>
+						<li class="list-form__text">
+							<label for="another">
+								Country:
+							</label> 
+							<select name="country" id="country">
+								<option value="Ukraine">Ukraine</option>
+								<option value="Russian">Russian</option>
+								<option value="Another">Another</option>
+							</select>          
+							
+						</li>
+						<li class="list-form__text">
+							<input type="submit" name="submit" value="Submit">
+						</li>
+					</ul>
 				</form>
 			</div>
-			<div class="offset-1"></div>
+			<div class="offset-3"></div>
 		</div>	
 	</div>
+	<div class="row">
+		<div class="offset-2"></div>
+		<div class="col-8 parent">
+			
+		</div>
+		<div class="offset-2"></div>
+	</div>
 </div>
-<script src="newInput.js"></script>
-<script src="input.js"></script>
-<script src="radio.js"></script>
-<script src="checkbox.js"></script>
-<script src="select.js"></script>
-
 <script>
-	var form = document.querySelector('form');
-	var containerList = document.querySelector('.container-list');
-	var buttonSend = document.querySelector('.btn-form');
+	
+	var form = (function(){
+		function Form(obj){
+			this.name = obj['name'].value;
+			this.email = obj['email'].value;
+			this.gender = obj['gender'].value;
+			this.gender = obj['gender'].value;
+			this.languages = this.searchChecked(obj['language']);
+			this.country = obj["country"].value;
+		}
 
+		Form.prototype = {
+			conctructor: Form,
+			searchChecked: function(checkbox){
+				var checkboxArray = [];
+				for(var i = 0; i < checkbox.length; i++){
+					if(checkbox[i].checked){
+						checkboxArray.push(checkbox[i].value);
+					}
+				}
+				return checkboxArray;
+			}
+		}
 
-	containerList.append(radio.newRadio());
-	containerList.append(checkbox.newCheckbox());	
-	containerList.append(select.newSelect());
-	form.prepend(input.newInput());
+		return{
+			getForm: function(form){
+				var createdForm = new Form(form);
+				this.getTable(createdForm);
+			},
+			getTable: function(createdForm){
+				var parent = document.querySelector('.parent'),
+				frag = document.createDocumentFragment(),
+				table = document.createElement('table'),
+				tbody = document.createElement('tbody'),
+				tableClass = ['table', 'table-bordered', 'mt-4'],
+				trow,
+				th;
+
+				for(var i = 0; i < tableClass.length; i++){
+					table.classList.add(tableClass[i]);
+				}
+
+				for(var key in createdForm){
+					if(createdForm.hasOwnProperty(key)){
+						trow = document.createElement('tr');
+						th = document.createElement('th');
+						th.innerHTML = key;
+						trow.append(th);
+						th = document.createElement('th');
+						th.innerHTML = createdForm[key];
+						trow.append(th);
+						tbody.append(trow);
+					}
+					table.append(tbody);
+					frag.append(table);
+					parent.append(frag);
+				}
+			}
+		}
+	}());
 	
 
-	// EVENT
-	buttonSend.addEventListener('click', function(){
-		var select = document.querySelector('select');
-		var inputs = document.querySelectorAll('input');
-		var checkbox = [];
-
-		var table = document.createElement('table');
-		table.classList.add('table', 'table-bordered', 'mt-4');
-		var tbody = document.createElement('tbody');
-		table.append(tbody);
-		var tRow = document.createElement('tr');
-
-		for(var i = 0; i < inputs.length; i++){			
-			if(inputs[i].type == 'text'){	
-				var td = document.createElement('td');			
-				td.innerHTML = inputs[i].value;
-				tRow.append(td);				
-			}
-			if(inputs[i].checked){
-				if(inputs[i].type == 'checkbox'){		
-				console.log(inputs[i])			
-					checkbox.push(inputs[i].nextSibling.nodeValue);	
-					continue;
-				}				
-				td.append(inputs[i].nextSibling.nodeValue);
-				tRow.append(td);		
-			}	
-		}
-
-		if(checkbox.length > 0){
-			var td = document.createElement('td');
-			for(var i = 0; i < checkbox.length; i++){				
-				td.append(checkbox[i] + ' ');
-				tRow.append(td);
-			}
-		}
-
-		var td = document.createElement('td');
-		td.append(select.value);
-		tRow.append(td);
-
-
-
-		
-		tbody.append(tRow);
-		form.append(table);
-	});
 	
 </script>
 </body>
-</html>
