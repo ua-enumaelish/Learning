@@ -1,0 +1,31 @@
+.check{
+	position: relative;					
+}
+
+.check:after{
+	content: '';
+	position: absolute;
+	right: -30px;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 20px;
+	height: 20px;				
+	background-image: url('./check.svg');	
+	background-repeat: no-repeat;	
+}
+
+.error{
+	position: relative;					
+}
+
+.error:after{
+	content: '';
+	position: absolute;
+	right: -30px;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 20px;
+	height: 20px;				
+	background-image: url('./error.svg');
+	background-repeat: no-repeat;
+}

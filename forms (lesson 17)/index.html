@@ -90,8 +90,7 @@
 								<option value="Ukraine">Ukraine</option>
 								<option value="Russian">Russian</option>
 								<option value="Another">Another</option>
-							</select>          
-							
+							</select>  
 						</li>
 						<li class="list-form__text">
 							<input type="submit" name="submit" value="Submit">
@@ -116,8 +115,7 @@
 		function Form(obj){
 			this.name = obj['name'].value;
 			this.email = obj['email'].value;
-			this.gender = obj['gender'].value;
-			this.gender = obj['gender'].value;
+			this.gender = obj['gender'].value;			
 			this.languages = this.searchChecked(obj['language']);
 			this.country = obj["country"].value;
 		}
@@ -140,6 +138,7 @@
 				var createdForm = new Form(form);
 				this.getTable(createdForm);
 			},
+
 			getTable: function(createdForm){
 				var parent = document.querySelector('.parent'),
 				frag = document.createDocumentFragment(),
