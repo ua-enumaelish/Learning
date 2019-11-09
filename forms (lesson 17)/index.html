@@ -50,128 +50,88 @@
 		<div class="row pt-5 mb-4">
 			<div class="offset-3"></div>
 			<div class="col-6 pt-3">
-				<form action="" name="new account" onsubmit="form.getForm(this); return false">
-					<ul class="list-form col-10">
-						<li class="list-form__text">
-							<label for="name">Name: </label>
-							<input type="text" placeholder="Michael Jackson" id="name" name="name" required>        
-						</li>
-						<li class="list-form__text">
-							<label for="email">Email: </label>
-							<input type="text" placeholder="m.jackson@example.com" id="email" name="email" required>        
-						</li>						
-						<li class="list-form__text">
-							<fieldset title="gender">
-								<legend>Gender</legend>
-								<input type="radio" name="gender" id="male" value="male" checked>  
-								<label class="label_radio" for="male">Male</label>
-								<input type="radio" name="gender" id="female" value="female">  
-								<label class="label_radio" for="female">Female</label>
-								<input type="radio" name="gender" id="another" value="another">  
-								<label class="label_radio" for="another">Another</label>
-							</fieldset>
-						</li>
-						<li class="list-form__text">
-							<fieldset title="languages" >
-								<legend>Knowledge of languages</legend>								
-								<input type="checkbox" name="language" id="ukrainian" value="ukrainian" checked>  
-								<label class="label_checkbox" for="ukrainian">Ukrainian</label>								
-								<input type="checkbox" name="language" id="russian" value="russian">  
-								<label class="label_checkbox" for="russian">Russian</label>							
-								<input type="checkbox" name="language" id="anotherCheckbox" value="another">  
-								<label class="label_checkbox" for="anotherCheckbox">Another</label>          
-							</fieldset>
-						</li>
-						<li class="list-form__text">
-							<label for="another">
-								Country:
-							</label> 
-							<select name="country" id="country">
-								<option value="Ukraine">Ukraine</option>
-								<option value="Russian">Russian</option>
-								<option value="Another">Another</option>
-							</select>  
-						</li>
-						<li class="list-form__text">
-							<input type="submit" name="submit" value="Submit">
-						</li>
-					</ul>
-				</form>
+
+				<form action="" name="form" class="form__container" onsubmit="getForm(this); return false">	
+					<select name="select" id="select" class="select__native">
+						<option value="Ukraine">Ukraine</option>
+						<option value="Russia">Russia</option>
+						<option value="Germany">Germany</option>
+					</select>
+					<input type="text" name="name" class="input__name" placeholder="name">
+					<fieldset>
+						<legend>Gender</legend>
+						<input type="radio" value="Male" name="gender" id="male">
+						<label for="male" class="radio__label">Male</label>
+						<input type="radio" value="Female" name="gender" id="female">
+						<label for="female" class="radio__label">Female</label>
+						<input type="radio" value="Another" name="gender" id="another">
+						<label for="another" class="radio__label">Another</label>
+					</fieldset>
+					<div class="select">
+						<h4 class="select__title">
+							Country:   
+						</h4>						
+						<div class="select__container">	
+							<div class="select__block"></div>
+							<input type="button" class="select__btn" onclick="selecting.selectBtn()">
+						</div>
+						<ul class="select__list"></ul>
+					</div>
+					
+					<fieldset>
+						<legend>Apple</legend>
+						<input type="checkbox" name="apple" value="1" id="first">
+						<label for="first" class="checkbox__label"></label>
+						<input type="checkbox" name="apple" value="2" id="second">
+						<label for="second" class="checkbox__label"></label>
+						<input type="checkbox" name="apple" value="3" id="third">
+						<label for="third" class="checkbox__label"></label>
+					</fieldset>					
+					<button class='submit'>Console.log</button>
+				</form>	
 			</div>
 			<div class="offset-3"></div>
 		</div>	
 	</div>
-	<div class="row">
-		<div class="offset-2"></div>
-		<div class="col-8 parent">
-			
-		</div>
-		<div class="offset-2"></div>
-	</div>
+
 </div>
+<script src="selecting.js"></script>
 <script>
-	
-	var form = (function(){
-		function Form(obj){
-			this.name = obj['name'].value;
-			this.email = obj['email'].value;
-			this.gender = obj['gender'].value;			
-			this.languages = this.searchChecked(obj['language']);
-			this.country = obj["country"].value;
+	// -----------------SELECT--------------------
+	selecting.getSelect();
+
+	var selectList = document.querySelector('.select__list');
+	for(var i = 0; i < selectList.children.length; i++){
+		var listItem = selectList.children;
+
+		listItem[i].addEventListener('click', function(){		
+			selecting.getValue(selectList.children, this);
+		});
+	}
+
+
+	function getForm(){
+		var formObj = {}
+		var formItems = form.elements;
+
+		formObj.name = formItems.name.value;
+		formObj.gender = formItems.gender.value;
+		formObj.country = formItems.select.value;
+		formObj.apple = appleCheck(formItems.apple);
+
+		function appleCheck(apple){
+			var checkboxArray = [];
+			for(var i = 0; i < apple.length; i++){
+				if(apple[i].checked){
+					checkboxArray.push(apple[i].value);
+				}
+			}	
+			return checkboxArray;
 		}
 
-		Form.prototype = {
-			conctructor: Form,
-			searchChecked: function(checkbox){
-				var checkboxArray = [];
-				for(var i = 0; i < checkbox.length; i++){
-					if(checkbox[i].checked){
-						checkboxArray.push(checkbox[i].value);
-					}
-				}
-				return checkboxArray;
-			}
-		}
-
-		return{
-			getForm: function(form){
-				var createdForm = new Form(form);
-				this.getTable(createdForm);
-			},
-
-			getTable: function(createdForm){
-				var parent = document.querySelector('.parent'),
-				frag = document.createDocumentFragment(),
-				table = document.createElement('table'),
-				tbody = document.createElement('tbody'),
-				tableClass = ['table', 'table-bordered', 'mt-4'],
-				trow,
-				th;
-
-				for(var i = 0; i < tableClass.length; i++){
-					table.classList.add(tableClass[i]);
-				}
-
-				for(var key in createdForm){
-					if(createdForm.hasOwnProperty(key)){
-						trow = document.createElement('tr');
-						th = document.createElement('th');
-						th.innerHTML = key;
-						trow.append(th);
-						th = document.createElement('th');
-						th.innerHTML = createdForm[key];
-						trow.append(th);
-						tbody.append(trow);
-					}
-					table.append(tbody);
-					frag.append(table);
-					parent.append(frag);
-				}
-			}
-		}
-	}());
-	
-
+		console.log(formObj);
+	}
 	
 </script>
+<script src="https://kit.fontawesome.com/8a1832d43a.js" crossorigin="anonymous"></script>	
 </body>
