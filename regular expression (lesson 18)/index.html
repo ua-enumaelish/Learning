@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>REGULAR EXPRESSION</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+</head>
+
+<body>
+	<div class="container position-relative">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					REGULAR EXPRESSION
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-group">
+					<li class="list-group-item border-0">
+						Создать форму запрашивающую у пользователя:
+						<ul class="list-group">							
+							<li class="list-group-item border-0">
+								Имя ( только буквы одного языка первая большая )
+							</li>
+							<li class="list-group-item border-0">
+								Фамилию ( только буквы одного языка первая большая )
+							</li>
+							<li class="list-group-item border-0">
+								Адрес электронной почты ( стандартную )
+							</li>
+							<li class="list-group-item border-0">
+								Номер телефона ( международный стандарт )
+							</li>
+							<li class="list-group-item border-0">
+								Пароль ( обязательно буквы и цифры - если сложно то можно только английские буквы )
+							</li>
+						</ul>	
+					</li>		
+					<li class="list-group-item border-0">
+						По событию потери фокуса каждого инпута проводить валидацию корректности ввода данных. По результатам валидации ставить возле инпута метку ( ошибки или правильности ввода - можно крестик и галочку )
+					</li>								
+				</ul>
+				<ul class="list-group">
+					ДОПОЛНИТЕЛЬНЫЕ ЗАДАНИЯ:
+					<li class="list-group-item border-0">
+						По событию отправки формы - формировать и выводить  в консоль объект данных собранных со всех полей формы. Формат объекта :
+						
+						{
+							имя_поля: данные,
+							имя_поля: данные,
+							имя_поля: данные,
+						}
+
+					</li>
+					<li class="list-group-item border-0">
+						Блокировать отправку данных формы (действие браузера по умолчанию при срабатывании события отправки формы “submit” ).
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="offset-3"></div>
+			<div class="col-6">
+				<form action="" onsubmit="regularExp.checkForm(this); return false">
+					<div class="input-block">
+						<input type="text" class="form-control m-1" name="name" onblur="regularExp.checkText(this)" placeholder="name">
+					</div>
+					<div class="input-block">
+						<input type="text" class="form-control m-1" name="surname" onblur="regularExp.checkText(this)" placeholder="surname">
+					</div>
+					<div class="input-block">
+						<input type="text" class="form-control m-1" name="email" onblur="regularExp.checkEmail(this)" placeholder="email">
+					</div>
+					<div class="input-block">
+						<input type="text" class="form-control m-1" name="tel" placeholder="099-999-99-99" onblur="regularExp.checkTel(this)">
+					</div>
+					<div class="input-block">
+						<input type="password" class="check form-control m-1" name="password" placeholder="password" onblur="regularExp.checkPassword(this)">
+					</div>
+					<input type="submit" class="btn btn-primary" value="Check form">
+				</form>			
+			</div>
+			<div class="offset-3"></div>
+		</div>		
+		<script>
+			var regularExp = (function(){
+				
+				function Form(form){
+					this.name = form.name.value;
+					this.surname = form.surname.value;
+					this.email = form.email.value;
+					this.tel = form.tel.value;
+					this.password = form.password.value;
+				}
+
+				function changeClass(elem,classElem){
+					if(elem.classList.contains('check')){
+						elem.classList.remove('check');
+					}		
+					else if(elem.classList.contains('error')){
+						elem.classList.remove('error');
+					}	
+					elem.classList.add(classElem)	
+
+				}
+
+
+				return{
+					checkForm: function(form){		
+						var blocks = document.querySelectorAll('.input-block');
+						for(var i = 0; i < blocks.length; i++){
+							if(blocks[i].classList.contains('check')){
+								var getForm = new Form(form);														
+							}
+							else{
+								return console.log('something wrong');
+							}							
+						}
+						console.log(getForm);		
+						
+					},
+
+					checkText: function(text){
+						var textReg = /^[A-Z][a-z]+$/;
+						if(textReg.test(text.value)){
+							changeClass(text.parentElement, 'check');
+						}
+						else{
+							changeClass(text.parentElement, 'error');
+						}
+						
+					},
+
+					checkEmail: function(email){
+						var emailReg = /^[a-z|1-9]+\@[a-z]+\.[a-z]*/i;						
+						if(emailReg.test(email.value)){
+							changeClass(email.parentElement, 'check');
+						}
+						else{
+							changeClass(email.parentElement, 'error');
+						}
+					},
+
+					checkTel: function(tel){
+						var telReg = /^0\d{2}-\d{3}-\d{2}-\d{2}/;						
+						if(telReg.test(tel.value)){
+							changeClass(tel.parentElement, 'check');
+						}
+						else{
+							changeClass(tel.parentElement, 'error');
+						}
+					},					
+
+					checkPassword: function(password){						
+						var passwordReg = /[a-z]*[A-Z]{1,}\d{1,}/;						
+						if(passwordReg.test(password.value)){
+							changeClass(password.parentElement, 'check');
+						}
+						else{
+							changeClass(password.parentElement, 'error');
+						}
+					}
+				}
+			}())
+		</script>
+		<script src="https://kit.fontawesome.com/8a1832d43a.js" crossorigin="anonymous"></script>	
+	</body>
+	</html>
