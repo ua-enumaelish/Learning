@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Clock</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="clock.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Clock
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12 pt-5">
+				<div class="outerCircle">
+					<div class="numberCircle"></div>
+					<div class="innerCircle">    
+						<div class="center">      
+							<span class="hand second"></span>
+							<span class="hand minute"></span>
+							<span class="hand hour"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
+	</div>
+	<script>
+		var second = document.querySelector('.second');
+		var minute = document.querySelector('.minute');
+		var hour = document.querySelector('.hour');
+		var outerCircle = document.querySelector('.outerCircle');
+
+		function clock(item){
+			var info = item.getBoundingClientRect();
+			var radius = item.offsetWidth / 2;			
+			var deg = 360 / 12;			
+			var buf = -60;
+
+			for(var i = 1; i < 13; i++){
+				var span = document.createElement('span');
+				var rad = buf * (Math.PI/180);
+				var cos = Math.cos(rad);
+				var sin = Math.sin(rad); 
+				span.classList.add('number');
+				span.style.left = 200 + (radius - 30) * cos + 'px'; 
+				span.style.top = 200 + (radius - 30) * sin + 'px'; ;
+				span.innerHTML = i;
+				item.append(span);
+				buf += deg;				
+			}
+		}
+
+		clock(outerCircle);
+
+
+		setInterval(function(){  
+			var deg = 360 / 60; 
+			var sec = deg * new Date().getMinutes(); 
+			var res = (new Date().getMinutes() + (new Date().getSeconds() / 60)).toFixed(2);
+			second.style.transform = `rotate(${deg * new Date().getSeconds()+'deg'})`;
+			minute.style.transform = `rotate(${deg * new Date().getMinutes()+'deg'})`;
+			hour.style.transform = `rotate(${360 / 12 * new Date().getHours()+'deg'})`;
+		},1000)
+		
+	</script>
+</body>
+</html>
