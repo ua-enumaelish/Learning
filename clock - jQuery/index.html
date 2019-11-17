@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Clock</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="clock.css">
+	<script>
+		(function () {
+			/* VARIABLE */
+			var secAngle = 360 / 60;
+			var minAngle = 360 / 60;
+			var hourAngle = 360 / 12;
+
+			// NOTE define clock as plugin within jquery
+			$.fn.clock = function (opt) {
+				// NOTE parent element (as JQ collection)
+				var parent = $('<div class="outerCircle">\
+						<div class="innerCircle">\
+							<div class="center">\
+								<span class="hand second"></span>\
+								<span class="hand minute"></span>\
+								<span class="hand hour"></span>\
+							</div>\
+						</div>\
+					</div>\
+				</div>').appendTo(this);
+
+				var numberParrent = parent;
+				var arrowParent = parent.find('.center');
+				
+				// NOTE add clock numbers
+				var radius = numberParrent.width() / 2;			
+				var step = -60;
+				for(var i = 1; i < 13; i++){
+					var rad = step * (Math.PI/180);
+					var cos = Math.cos(rad);
+					var sin = Math.sin(rad);
+	
+					$('<span class="number">' + i + '<span>')
+					.appendTo(numberParrent)
+					.css({
+						left: 200 + (radius - 30) * cos + 'px',
+						top: 200 + (radius - 30) * sin + 'px',
+					});
+	
+					step += hourAngle;					
+				}
+	
+				// NOTE setup time arrows render
+				setInterval(function () {
+					arrowParent.find('.second').css('transform', 'rotate('+ secAngle * getCurrentSeconds() + 'deg)');
+					arrowParent.find('.minute').css('transform', 'rotate('+ minAngle * getCurrentMinutes() + 'deg)');
+					arrowParent.find('.hour').css('transform', 'rotate(' + hourAngle * getCurrentHours() + 'deg)');
+				}, 1000 / 24);
+	
+				return this;
+			}
+	
+			/* HELPERS */
+			function getCurrentSeconds () { return (new Date()).getSeconds(); }
+			function getCurrentMinutes () { return (new Date()).getMinutes(); }
+			function getCurrentHours () { return (new Date()).getHours(); }
+		})();
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					Clock
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-12 pt-5">
+				<div id="clock0"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 pt-5">
+				<div id="clock1"></div>
+			</div>
+		</div>			
+	</div>	
+	<script>
+		
+		$('#clock0').clock();
+		$('#clock1').clock();
+
+	</script>
+</body>
+</html>

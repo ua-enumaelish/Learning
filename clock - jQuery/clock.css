@@ -1,0 +1,69 @@
+.outerCircle{
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: beige;
+}
+
+.innerCircle{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background-color: azure;
+}
+
+.center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: grey;  
+}
+
+.hand{  
+  position: absolute; 
+  left: 8px;
+  bottom: 10px; 
+  border-radius: 5px;  
+  background-color: grey;
+  transform-origin: bottom;  
+}
+
+.second{
+  width: 3px;
+  height: 120px;  
+}
+
+.minute{
+  width: 5px;
+  height: 100px;
+}
+
+.hour{
+  width: 7px;
+  height: 80px;
+}
+
+.number{
+  position: absolute;
+  top: 0;
+  left: 0;  
+  transform: translate(-50%, -50%);
+  font-size: 21px;
+  color:  grey;  
+}
+
+/* 
+x=x0+r*cos(a)
+y=y0+r*sin(a)
+
+x0,y0 - центр, a - угол, r - радиус */
