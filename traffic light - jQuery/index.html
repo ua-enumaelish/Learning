@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TRAFFIC LIGHT - JQUERY</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, 
+	initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+</head>
+<body>
+	<div class="container">
+		<div class="row bg-dark mb-4">
+			<div class="col-2 pt-3">
+				<a href="../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+			</div>
+			<div class="col-8 pt-2">
+				<h1 class="mb-4 text-light text-center">
+					TRAFFIC LIGHT - JQUERY
+				</h1>
+			</div>
+			<div class="offset-2"></div>
+		</div>		
+		<div id="parent" class="row">
+			<div class="col-3 remote fixed-bottom text-center bg-dark p-3">
+				<div class="d-flex align-items-center justify-content-between pb-3">
+					<button class="btn btn-success" onclick="">Add</button>
+					<select name="choiceLights" id="choiceLights"></select>
+					<button class="btn remove btn-danger">Remove</button>					
+				</div>
+				<button class="btn btn-warning">Strat</button>
+				<button class="btn btn-primary">Stop</button>
+			</div>
+		</div>		
+	</div>
+</div>
+<script src="trafficLight.js"></script>
+<script>
+	
+	
+	(function () {
+		/*VARIABLES*/				
+		var elem = 1;	
+		var elemArray = [];	
+		/*Add new traffic light*/
+		$('.btn-success').click(function(){			
+			$('#parent').trafficLight(elemArray);
+			$('<option></option>')
+			.val(elem)
+			.text(elem)		
+			.appendTo($('#choiceLights'));
+			elem++;	
+		});
+
+		/*Remove traffic light*/
+		$('.remove').click(function () {
+			var choisedElem = +$('#choiceLights').val()-1;
+
+			/*Delete choised traffic light*/	
+			$('.parent')
+				.eq(choisedElem)
+				.remove();	
+
+			/*Delete choised select value*/
+			$('#choiceLights')
+				.find('option')
+				.eq(choisedElem)
+				.remove();
+
+			elem --;
+
+			for(var i = 1; i < elem; i++){				
+				$('#choiceLights').find('option').eq(i-1)
+				.text(i)
+				.val(i);
+			}	
+		});
+
+		/*Start lighting*/
+		$('.btn-warning').click(function(){
+			var choisedElem = +$('#choiceLights').val()-1;
+			$('.parent').eq(choisedElem).lighting(elemArray[choisedElem]);
+		});
+
+		/*Stop lighting*/
+		$('.btn-primary').click(function(){
+			var choisedElem = +$('#choiceLights').val()-1;
+			var i = $('.parent').eq(choisedElem).stopLighting();
+			elemArray[choisedElem].iteration = i;
+		});
+
+	})()
+	
+</script>
+</body>
+</html>
