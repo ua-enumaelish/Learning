@@ -58,44 +58,42 @@
 	var images = $('.gallery__img');
 
 	var gallery = (function(images){
-		var i = 0;
+		var iterator = 0;
+
+		function change(i){
+			images.eq(i).removeClass('d-block');
+			images.eq(i).addClass('d-none');
+		}
 
 		return{
 			next: function(){
-				images.eq(i).removeClass('d-block');
-				images.eq(i).addClass('d-none');
-				i++;
+				change(iterator);
+				iterator++;
 
-				if( i > images.length-1){
-					i = 0;
-					images.eq(images.length-1).removeClass('d-block');
-					images.eq(images.length-1).addClass('d-none');
-
-					images.eq(i).removeClass('d-block');
-					images.eq(i).addClass('d-none');
+				if( iterator > images.length-1){
+					iterator = 0;
+					change(images.length-1);
+					change(iterator);
 				}
 
-				images.eq(i).removeClass('d-none');
-				images.eq(i).addClass('d-block');
+				images.eq(iterator).removeClass('d-none');
+				images.eq(iterator).addClass('d-block');
 			},
 
 			prev: function(){
-				images.eq(i).removeClass('d-block');
-				images.eq(i).addClass('d-none');
-				i--;
-				if(i < 0){
-					i = images.length-1;
-					images.eq(0).removeClass('d-block');
-					images.eq(0).addClass('d-none');
-
-					images.eq(i).removeClass('d-block');
-					images.eq(i).addClass('d-none');
+				change(iterator);
+				iterator--;
+				if(iterator < 0){
+					iterator = images.length-1;
+					change(0);
+					change(iterator);
 				}
 
-				images.eq(i).addClass('d-block');
-				images.eq(i).removeClass('d-none');
+				images.eq(iterator).removeClass('d-none');
+				images.eq(iterator).addClass('d-block');				
 			}
 		}
+		
 	})(images);
 
 	btnNext.click(gallery.next);
