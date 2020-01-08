@@ -26,7 +26,7 @@
 	}
 
 	$.fn.lighting = function(arg){		
-		console.log(arg);
+		
 		var firstElement = $(this).find('.traffic-light-lamp').eq(0);
 		var secondElement = $(this).find('.traffic-light-lamp').eq(1);
 		var thirdElement = $(this).find('.traffic-light-lamp').eq(2);
