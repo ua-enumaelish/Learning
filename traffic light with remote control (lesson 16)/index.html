@@ -77,8 +77,9 @@
 		},
 
 		getLight: function(){
+			clearInterval(this.array[this.selectForm.value-1].timerID)
 			var timer = lighting.interval(this.array[this.selectForm.value-1].domElement);	
-			this.array[this.selectForm.value-1].timerID = timer;			
+			this.array[this.selectForm.value-1].timerID = timer;		
 		},
 
 		stopLight: function(){

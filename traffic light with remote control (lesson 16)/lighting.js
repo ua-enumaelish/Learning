@@ -2,6 +2,7 @@ var lighting = (function(parent){
 	return{
 		
 		interval: function(parent){
+			
 			var lights = parent.children;
 			var i = 0;
 			var colors = ['bg-danger', 'bg-warning', 'bg-success'];
