@@ -24,8 +24,8 @@ function App() {
 					  Animate CSS
 				  </h1>
 			  </div>
-        <div className="col-2 pt-3">
-          <a href="https://github.com/ua-enumaelish/Learning/tree/master/animateCSS/my-app/src" 
+        <div className="col-2 pt-3 pr-4 text-right">
+          <a href="https://github.com/ua-enumaelish/Learning/tree/master/animate%20CSS" 
             className="btn btn-secondary btn-lg active" 
             role="button" 
             aria-pressed="true"
