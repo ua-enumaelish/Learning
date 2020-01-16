@@ -1,0 +1,25 @@
+.selectContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selects{  
+  padding: 5px;
+  border: 1px solid #343A40;  
+}
+
+.mainSelect{
+  width: 150px;
+}
+
+.additionalSelect{
+  width: 90px;
+  margin-left: 5px;
+}
+
+.btn{
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid #343A40;
+}
