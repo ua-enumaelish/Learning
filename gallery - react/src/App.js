@@ -15,7 +15,7 @@ export default class App extends React.Component{
 				  </h1>
 			  </div>
         <div class="col-2 pt-3 pr-4 text-right">
-	      <a href="https://github.com/ua-enumaelish/Learning/tree/master/horse%20(lesson%2014)" 
+	      <a href="https://github.com/ua-enumaelish/Learning/tree/master/gallery%20-%20react" 
 	        class="btn btn-secondary btn-lg active" 
 	        role="button" 
 	        aria-pressed="true"
