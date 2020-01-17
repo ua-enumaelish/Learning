@@ -8,7 +8,7 @@ export default class Animate extends React.Component{
       mainValue: "bounce",
       additionalValue: "In",
       id: 0,
-      animate: "animate bounceIn"
+      animate: null
     }
   }
 
@@ -37,6 +37,7 @@ export default class Animate extends React.Component{
       ...this.state,
       ...prop
     }
+    console.log(clone)
       this.setState({ ...clone })
   }
 
@@ -53,7 +54,15 @@ export default class Animate extends React.Component{
     return options;
   }
 
-  
+  addClassName = () => {
+    let getAnimate = "animated " + this.state.mainValue + this.state.additionalValue;
+    this.changeState( { animate: getAnimate} );
+    this.removeClassName();  
+  }
+
+  removeClassName = () => {
+    setTimeout( () => this.changeState( { animate: null} ), 3000);  
+  }
 
   render(){
     return(
@@ -86,10 +95,7 @@ export default class Animate extends React.Component{
           </select>
           <button
             className = "btn"
-            onClick = { () => {
-              let getAnimate = "animated " + this.state.mainValue + this.state.additionalValue
-              this.changeState( { animate: getAnimate} )
-            } }
+            onClick = { this.addClassName }
           >
             Click
           </button>
@@ -100,5 +106,5 @@ export default class Animate extends React.Component{
 }
 
 
-
+           
       
