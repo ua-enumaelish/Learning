@@ -1,6 +1,7 @@
 import React from 'react';
+import Clock from "./Clock"
 import './App.css';
-import TrafficLightContainer from './components/TrafficLightContainer';
+
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
 		    </div>
         <div className="row pt-5">
           <div className="offset-2"></div>
-            <TrafficLightContainer/>
+            <Clock/>
           <div className="offset-2"></div>
         </div>
       </div>
