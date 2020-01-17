@@ -5,18 +5,18 @@ import TrafficLightContainer from './components/TrafficLightContainer';
 function App() {
   return (
     <div className="container">
-        <div class="row bg-dark">
-			    <div class="col-2 pt-3">
-				    <a href="../../index.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
+        <div className="row bg-dark">
+			    <div className="col-2 pt-3">
+				    <a href="../../index.html" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true">BACK</a>	
 			    </div>
-			    <div class="col-8 pt-2">
-				    <h1 class="mb-4 text-light text-center">
-					    Traffic light in React (stateful)
+			    <div className="col-8 pt-2">
+				    <h1 className="mb-4 text-light text-center">
+					    Traffic light in React (stateless)
 				    </h1>
 			    </div>
-          <div class="col-2 pt-3 pr-4 text-right">
+          <div className="col-2 pt-3 pr-4 text-right">
             <a href="https://github.com/ua-enumaelish/Learning/tree/master/traffic%20light%20-%20react%20(stateful)" 
-              class="btn btn-secondary btn-lg active" 
+              className="btn btn-secondary btn-lg active" 
               role="button" 
               aria-pressed="true"
               target="_blank"

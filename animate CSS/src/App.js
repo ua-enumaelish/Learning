@@ -11,7 +11,7 @@ function App() {
       <div className="row bg-dark">
 			  <div className="col-2 pt-3">
           <a 
-            href="../index.html" 
+            href="../../index.html" 
             className="btn btn-secondary btn-lg active" 
             role="button" 
             aria-pressed="true"
