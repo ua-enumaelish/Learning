@@ -2,35 +2,73 @@ import React from 'react';
 import './clock.css';
 
 
-export default function Clock(props){
-  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  let secondHandDirection = 'rotate('+ (((360 / 60) * props.date.getSeconds())) +'deg)'
-  let minuteHandDirection = 'rotate('+ (((360 / 60) * props.date.getMinutes())) +'deg)'
-  let hourHandDirection = 'rotate('+ (((360 / 12) * props.date.getHours())) +'deg)'
-  let step = -60
-
-  let getClockFace = (number, index) =>{    
-    let radius = 400 / 2
-    let angle = step * (Math.PI/180);
-    let cos = Math.cos(angle);
-    let sin = Math.sin(angle);
-    let numberDiraction = {
-      left: radius + (radius - 30) * cos + 'px',
-      top: radius + (radius - 30) * sin + 'px',
+export default class Clock extends React.Component{
+  constructor( ...args ){
+    super( ...args );
+    this.step = - 60;
+    this.state = {   
+      date : new Date(),
+      secondHandDirection : 'rotate('+ ( ( ( 360 / 60 ) * new Date().getSeconds() ) ) +'deg)',
+      minuteHandDirection : 'rotate('+ ( ( ( 360 / 60 ) * new Date().getMinutes() ) ) +'deg)',
+      hourHandDirection : 'rotate('+ ( ( ( 360 / 12 ) * new Date().getHours() ) ) +'deg)'
     }
-    step += 360 / numbers.length;
-    return <span className='numbers' key={index} style={numberDiraction}>{number}</span>
   }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.getTime(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  getTime = () => {
+    this.changeState( {
+      secondHandDirection : 'rotate('+ ( ( ( 360 / 60 ) * new Date().getSeconds() ) ) +'deg)',
+      minuteHandDirection : 'rotate('+ ( ( ( 360 / 60 ) * new Date().getMinutes() ) ) +'deg)',
+      hourHandDirection : 'rotate('+ ( ( ( 360 / 12 ) * new Date().getHours() ) ) +'deg)'
+    } )
+  }
+
+  changeState = ( prop ) => {
+    let clone = {
+      ...this.state,
+      ...prop
+    };
+
+    this.setState( { ...clone } );
+  }
+
   
-  return(
-      <div className="clock" style={{margin: '0 auto'}}>  
-      {numbers.map((number, index) => getClockFace(number, index))}
+  getClockFace = ( number, index ) =>{
+    let radius = 400 / 2;    
+    let angle = this.step * ( Math.PI/180 );
+    let cos = Math.cos( angle );
+    let sin = Math.sin( angle );
+    let numberDiraction = {
+      left: radius + ( radius - 30 ) * cos + 'px',
+      top: radius + ( radius - 30 ) * sin + 'px',
+    }
+    this.step += (360 / 12);
+    return <span className='numbers' key={ index } style={ numberDiraction }>{ number }</span>
+  }
+
+  render() {
+    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    return(
+      <div className="clock" style={ { margin: '0 auto' } }>  
+      { array.map( ( number, index ) => this.getClockFace( number, index ) ) }
         <span  className='centerStyle'>
-          <span className='secondHand' style={{transform: secondHandDirection}}></span>
-          <span className='minuteHand' style={{transform: minuteHandDirection}}></span>
-          <span className='hourHand' style={{transform: hourHandDirection}}></span>
+          <span className='secondHand' style={ { transform: this.state.secondHandDirection } }></span>
+          <span className='minuteHand' style={ { transform: this.state.minuteHandDirection } }></span>
+          <span className='hourHand' style={ { transform: this.state.hourHandDirection } }></span>
         </span>
       </div>
-  )
+    )
+  }
+  
 }
 
