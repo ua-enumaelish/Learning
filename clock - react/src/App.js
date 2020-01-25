@@ -16,7 +16,7 @@ function App() {
 				    </h1>
 			    </div>
           <div className="col-2 pt-3 pr-4 text-right">
-            <a href="https://github.com/ua-enumaelish/Learning/tree/master/traffic%20light%20-%20react%20(stateless)" 
+            <a href="https://github.com/ua-enumaelish/Learning/tree/master/clock%20-%20react" 
               className="btn btn-secondary btn-lg active" 
               role="button" 
               aria-pressed="true"
@@ -37,3 +37,4 @@ function App() {
 }
 
 export default App;
+
