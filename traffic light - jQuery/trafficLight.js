@@ -5,12 +5,15 @@
 	$.fn.trafficLight = function (array) {
 
 		/*VARIABLE personal for current instance*/
-		var parent = $('<div class="col-2 parent">\
-			<div class="traffic-light p-2 d-flex bg-dark flex-column justify-content-center align-items-center rounded">\
-			<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
-			<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
-			<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
-			</div></div>');
+		var parent = $('<div class="offset-lg-0 offset-md-0 offset-sm-1 offset-3"></div>\
+			<div class="col-lg-2 col-md-2 col-sm-4 col-6 parent mb-2">\
+				<div class="traffic-light p-2 d-flex bg-dark flex-column justify-content-center align-items-center rounded">\
+					<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
+					<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
+					<div class="traffic-light-lamp mb-3 rounded-circle bg-secondary"></div>\
+				</div>\
+			</div>\
+			<div class="offset-lg-0 offset-md-0 offset-sm-1 offset-3"></div>');
 
 		/* PREPARATION ACTIONS */				
 		// add parent element to DOM
@@ -18,8 +21,8 @@
 		array.push({elem : parent});		
 		// add CSS
 		parent.find('.traffic-light-lamp').css({
-			width: '100px',
-			height: '100px',								
+			width: '80px',
+			height: '80px',								
 		});
 
 		return array;

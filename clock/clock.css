@@ -1,7 +1,7 @@
 .outerCircle{
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
   border-radius: 50%;
   background-color: beige;
@@ -15,7 +15,7 @@
   width: 270px;
   height: 270px;
   border-radius: 50%;
-  background-color: azure;
+  background-color: azure;  
 }
 
 .center{
@@ -62,8 +62,3 @@
   color:  grey;  
 }
 
-/* 
-x=x0+r*cos(a)
-y=y0+r*sin(a)
-
-x0,y0 - центр, a - угол, r - радиус */

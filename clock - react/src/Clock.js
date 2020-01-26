@@ -44,7 +44,7 @@ export default class Clock extends React.Component{
 
   
   getClockFace = ( number, index ) =>{
-    let radius = 400 / 2;    
+    let radius = 300 / 2;    
     let angle = this.step * ( Math.PI/180 );
     let cos = Math.cos( angle );
     let sin = Math.sin( angle );

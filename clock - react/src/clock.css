@@ -1,8 +1,8 @@
 
     .clock{
       position: relative;
-      width: 400px;
-      height: 400px;
+      width: 300px;
+      height: 300px;
       margin: 0 auto;    
       background-color: #eaeaea;
       border-radius: 50%;
@@ -24,7 +24,7 @@
       bottom: 10px;      
       transform-origin: bottom;
       background-color: #1e2418;
-      height: 150px;
+      height: 100px;
       width: 5px;
       border-radius: 3px;
     }
@@ -35,7 +35,7 @@
       bottom: 10px;      
       transform-origin: bottom;
       background-color: #1e2418;
-      height: 150px;
+      height: 100px;
       width: 3px;
       border-radius: 3px;
     }
@@ -46,7 +46,7 @@
       bottom: 10px;      
       transform-origin: bottom;
       background-color: #1e2418;
-      height: 100px;
+      height: 80px;
       width: 7px;
       border-radius: 3px;
     }
