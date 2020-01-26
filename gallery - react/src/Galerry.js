@@ -27,8 +27,9 @@ export default class Gallery extends React.Component{
   } 
 
   render(){
-    return(
-    <div className="col-8">
+    return(<>
+      <div class="offset-lg-2 offset-md-2 offset-0"></div>
+      <div className="col-lg-8 col-md-8 col-12">
       <span onClick={this.nextImg} 
         className="position-absolute carousel-control-next-icon next-btn" 
         style={{top:"50%", right: 25, transform: "translate(0, -50%)", cursor: "pointer"}}>
@@ -39,7 +40,10 @@ export default class Gallery extends React.Component{
         style={{top:"50%", left: 25, transform: "translate(0, -50%)", cursor: "pointer"}}>
       </span>
       <Image img={this.state.count}/>
-    </div> )   
+    </div> 
+    <div class="offset-lg-2 offset-md-2 offset-0"></div>
+    </>
+    )   
   }
 }
 
